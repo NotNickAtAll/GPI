@@ -1,1 +1,564 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Golden Place | גולדן פלייס - שלומי</title>
+<meta name="description" content="Golden Place - vacation rental in Shlomi, Western Galilee, Israel">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Frank+Ruhl+Libre:wght@500;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #c9a24a;
+    --gold-light: #e8c97a;
+    --gold-dark: #9a7a2e;
+    --ink: #1a1a1f;
+    --ink-soft: #2a2a31;
+    --cream: #faf6ee;
+    --sand: #f1e8d6;
+    --text: #3b3a36;
+    --muted: #7a7466;
+    --white: #ffffff;
+    --radius: 18px;
+    --shadow: 0 10px 30px rgba(26, 26, 31, 0.08);
+    --heading-font: 'Frank Ruhl Libre', serif;
+  }
+  html[lang="en"] { --heading-font: 'Playfair Display', serif; }
 
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Heebo', sans-serif;
+    color: var(--text);
+    background: var(--cream);
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+  h1, h2, h3 { font-family: var(--heading-font); color: var(--ink); line-height: 1.25; }
+  a { color: inherit; text-decoration: none; }
+  .container { width: min(1150px, 100% - 32px); margin-inline: auto; }
+  section { padding: 96px 0; }
+
+  /* ---------- NAV ---------- */
+  .nav {
+    position: fixed; inset-inline: 0; top: 0; z-index: 50;
+    transition: background .3s, box-shadow .3s, padding .3s;
+    padding: 22px 0;
+  }
+  .nav.scrolled {
+    background: rgba(26, 26, 31, 0.92);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0,0,0,.2);
+    padding: 12px 0;
+  }
+  .nav .container { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem; font-weight: 700; color: var(--white);
+    letter-spacing: .5px;
+  }
+  .logo span { color: var(--gold-light); }
+  .nav-links { display: flex; gap: 28px; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,.85); font-size: .95rem; transition: color .2s; }
+  .nav-links a:hover { color: var(--gold-light); }
+  .nav-actions { display: flex; align-items: center; gap: 10px; }
+  .lang-btn {
+    background: transparent; color: var(--white);
+    border: 1px solid rgba(255,255,255,.4); border-radius: 999px;
+    padding: 6px 14px; cursor: pointer; font-family: inherit; font-size: .85rem;
+    transition: border-color .2s, color .2s;
+  }
+  .lang-btn:hover { border-color: var(--gold-light); color: var(--gold-light); }
+  .menu-btn {
+    display: none; background: none; border: none; color: var(--white);
+    font-size: 1.6rem; cursor: pointer;
+  }
+
+  /* ---------- BUTTONS ---------- */
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 30px; border-radius: 999px; font-weight: 500;
+    cursor: pointer; border: none; font-family: inherit; font-size: 1rem;
+    transition: transform .2s, box-shadow .2s, background .2s;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-gold {
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
+    color: var(--ink); box-shadow: 0 8px 24px rgba(201,162,74,.35);
+  }
+  .btn-outline { border: 1px solid rgba(255,255,255,.5); color: var(--white); background: transparent; }
+  .btn-outline:hover { border-color: var(--gold-light); color: var(--gold-light); }
+  .btn-sm { padding: 9px 20px; font-size: .9rem; }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    min-height: 100vh; display: flex; align-items: center; position: relative;
+    background:
+      radial-gradient(ellipse at 20% 20%, rgba(232,201,122,.25), transparent 50%),
+      radial-gradient(ellipse at 80% 80%, rgba(201,162,74,.18), transparent 55%),
+      linear-gradient(160deg, #15151a 0%, #24242c 55%, #1a1a1f 100%);
+    color: var(--white); overflow: hidden; padding: 120px 0 80px;
+  }
+  .hero::before {
+    content: ""; position: absolute; inset: 0;
+    background-image: radial-gradient(rgba(255,255,255,.06) 1px, transparent 1px);
+    background-size: 28px 28px; pointer-events: none;
+  }
+  .hero-orb {
+    position: absolute; width: 520px; height: 520px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(232,201,122,.35), transparent 65%);
+    inset-inline-end: -140px; top: 10%; filter: blur(10px);
+    animation: float 9s ease-in-out infinite;
+  }
+  @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-30px); } }
+  .hero-content { position: relative; max-width: 680px; }
+  .eyebrow {
+    display: inline-block; color: var(--gold-light); font-size: .85rem;
+    letter-spacing: 3px; text-transform: uppercase; margin-bottom: 18px;
+    border-bottom: 1px solid var(--gold); padding-bottom: 6px;
+  }
+  .hero h1 { color: var(--white); font-size: clamp(2.6rem, 6vw, 4.6rem); margin-bottom: 20px; }
+  .hero h1 em { font-style: normal; color: var(--gold-light); }
+  .hero p { font-size: 1.15rem; color: rgba(255,255,255,.75); margin-bottom: 36px; max-width: 540px; }
+  .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
+  .hero-stats {
+    display: flex; gap: 40px; margin-top: 56px; flex-wrap: wrap;
+    border-top: 1px solid rgba(255,255,255,.12); padding-top: 28px;
+  }
+  .stat strong { display: block; font-family: var(--heading-font); font-size: 1.9rem; color: var(--gold-light); }
+  .stat span { font-size: .9rem; color: rgba(255,255,255,.6); }
+
+  /* ---------- SECTION HEADINGS ---------- */
+  .section-head { text-align: center; max-width: 620px; margin: 0 auto 56px; }
+  .section-head .eyebrow { color: var(--gold-dark); border-color: var(--gold); }
+  .section-head h2 { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 14px; }
+  .section-head p { color: var(--muted); }
+
+  /* ---------- ABOUT ---------- */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+  .about-visual {
+    aspect-ratio: 4/5; border-radius: var(--radius); position: relative; overflow: hidden;
+    background:
+      linear-gradient(180deg, transparent 55%, rgba(26,26,31,.55)),
+      linear-gradient(135deg, #e8c97a 0%, #c9a24a 40%, #6b5a35 100%);
+    box-shadow: var(--shadow);
+    display: flex; align-items: flex-end; padding: 28px;
+  }
+  .about-visual .placeholder-note { color: rgba(255,255,255,.9); font-size: .9rem; }
+  .about-visual::after {
+    content: ""; position: absolute; width: 160px; height: 160px; border-radius: 50%;
+    border: 2px solid rgba(255,255,255,.35); top: 30px; inset-inline-end: 30px;
+  }
+  .about-text h2 { font-size: clamp(1.9rem, 3.5vw, 2.6rem); margin-bottom: 20px; }
+  .about-text p { margin-bottom: 18px; }
+  .about-points { list-style: none; margin-top: 26px; display: grid; gap: 12px; }
+  .about-points li { display: flex; gap: 12px; align-items: center; }
+  .about-points li::before {
+    content: "✦"; color: var(--gold); font-size: 1rem;
+  }
+
+  /* ---------- ROOMS ---------- */
+  .rooms { background: var(--sand); }
+  .rooms-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; }
+  .room-card {
+    background: var(--white); border-radius: var(--radius); overflow: hidden;
+    box-shadow: var(--shadow); transition: transform .3s, box-shadow .3s;
+    display: flex; flex-direction: column;
+  }
+  .room-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(26,26,31,.14); }
+  .room-img { height: 210px; position: relative; }
+  .room-img.r1 { background: linear-gradient(135deg, #2a2a31, #4a4130 60%, #c9a24a); }
+  .room-img.r2 { background: linear-gradient(135deg, #3a3326, #9a7a2e 55%, #e8c97a); }
+  .room-img.r3 { background: linear-gradient(135deg, #1a1a1f, #2f3a3a 55%, #8fa39a); }
+  .room-tag {
+    position: absolute; top: 16px; inset-inline-start: 16px;
+    background: rgba(26,26,31,.75); color: var(--gold-light);
+    padding: 4px 14px; border-radius: 999px; font-size: .8rem;
+  }
+  .room-body { padding: 26px; flex: 1; display: flex; flex-direction: column; }
+  .room-body h3 { font-size: 1.4rem; margin-bottom: 8px; }
+  .room-body p { color: var(--muted); font-size: .95rem; margin-bottom: 18px; }
+  .room-meta { display: flex; gap: 16px; flex-wrap: wrap; font-size: .88rem; color: var(--text); margin-bottom: 22px; }
+  .room-meta span { background: var(--cream); padding: 4px 12px; border-radius: 8px; }
+  .room-footer { margin-top: auto; display: flex; justify-content: space-between; align-items: center; }
+  .price strong { font-family: var(--heading-font); font-size: 1.4rem; color: var(--ink); }
+  .price small { color: var(--muted); }
+
+  /* ---------- AMENITIES ---------- */
+  .amen-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 20px; }
+  .amen {
+    background: var(--white); border-radius: var(--radius); padding: 28px 22px;
+    text-align: center; border: 1px solid #efe6d2; transition: border-color .3s, transform .3s;
+  }
+  .amen:hover { border-color: var(--gold); transform: translateY(-4px); }
+  .amen .icon {
+    width: 58px; height: 58px; margin: 0 auto 14px; border-radius: 50%;
+    display: grid; place-items: center; font-size: 1.6rem;
+    background: linear-gradient(135deg, var(--sand), #fff);
+    border: 1px solid var(--gold-light);
+  }
+  .amen h3 { font-size: 1.1rem; margin-bottom: 6px; }
+  .amen p { font-size: .9rem; color: var(--muted); }
+
+  /* ---------- AREA ---------- */
+  .area { background: var(--ink); color: rgba(255,255,255,.8); }
+  .area .section-head h2 { color: var(--white); }
+  .area .section-head p { color: rgba(255,255,255,.6); }
+  .area .section-head .eyebrow { color: var(--gold-light); }
+  .area-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
+  .spot {
+    background: var(--ink-soft); border-radius: var(--radius); padding: 26px;
+    border: 1px solid rgba(255,255,255,.06); transition: border-color .3s;
+  }
+  .spot:hover { border-color: var(--gold); }
+  .spot .dist { color: var(--gold-light); font-size: .85rem; }
+  .spot h3 { color: var(--white); font-size: 1.2rem; margin: 6px 0 8px; }
+  .spot p { font-size: .92rem; color: rgba(255,255,255,.6); }
+
+  /* ---------- REVIEWS ---------- */
+  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
+  .review {
+    background: var(--white); border-radius: var(--radius); padding: 30px; box-shadow: var(--shadow);
+    position: relative;
+  }
+  .review::before {
+    content: "“"; position: absolute; top: 4px; inset-inline-end: 22px;
+    font-family: 'Playfair Display', serif; font-size: 5rem; color: var(--gold-light); opacity: .5;
+  }
+  .stars { color: var(--gold); letter-spacing: 2px; margin-bottom: 12px; }
+  .review p { margin-bottom: 18px; font-size: .97rem; }
+  .review .who { font-weight: 500; color: var(--ink); }
+  .review .src { font-size: .82rem; color: var(--muted); }
+
+  /* ---------- CONTACT ---------- */
+  .contact { background: var(--sand); }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: stretch; }
+  .contact-card {
+    background: var(--ink); color: var(--white); border-radius: var(--radius); padding: 44px;
+    display: flex; flex-direction: column; gap: 18px;
+  }
+  .contact-card h2 { color: var(--white); font-size: 2rem; }
+  .contact-card p { color: rgba(255,255,255,.7); }
+  .book-links { display: grid; gap: 12px; margin-top: 8px; }
+  .book-link {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 16px 22px; border-radius: 14px; font-weight: 500;
+    transition: transform .2s, filter .2s;
+  }
+  .book-link:hover { transform: translateY(-2px); filter: brightness(1.08); }
+  .book-link.wa { background: #25d366; color: #0b3d1f; }
+  .book-link.bk { background: #003580; color: var(--white); }
+  .book-link.ab { background: #ff5a5f; color: var(--white); }
+  .contact-info { display: grid; gap: 8px; font-size: .95rem; color: rgba(255,255,255,.75); margin-top: auto; }
+  .map {
+    border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); min-height: 380px;
+  }
+  .map iframe { width: 100%; height: 100%; min-height: 380px; border: 0; display: block; }
+
+  /* ---------- FOOTER ---------- */
+  footer { background: #111114; color: rgba(255,255,255,.55); padding: 36px 0; font-size: .9rem; }
+  footer .container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 14px; }
+
+  /* ---------- FLOATING WHATSAPP ---------- */
+  .wa-float {
+    position: fixed; bottom: 24px; inset-inline-start: 24px; z-index: 60;
+    width: 60px; height: 60px; border-radius: 50%; background: #25d366;
+    display: grid; place-items: center; box-shadow: 0 8px 24px rgba(37,211,102,.45);
+    transition: transform .2s;
+  }
+  .wa-float:hover { transform: scale(1.08); }
+  .wa-float svg { width: 32px; height: 32px; fill: white; }
+
+  /* ---------- REVEAL ANIMATION ---------- */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ---------- MOBILE ---------- */
+  @media (max-width: 860px) {
+    section { padding: 72px 0; }
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 36px; }
+    .about-visual { aspect-ratio: 16/11; }
+    .menu-btn { display: block; }
+    .nav-links {
+      position: fixed; top: 0; inset-inline-end: 0; height: 100vh; width: 260px;
+      flex-direction: column; background: var(--ink); padding: 90px 30px; gap: 22px;
+      transform: translateX(100%); transition: transform .35s;
+    }
+    html[dir="rtl"] .nav-links { transform: translateX(-100%); }
+    .nav-links.open { transform: translateX(0) !important; }
+    .nav-actions .btn { display: none; }
+    .hero-stats { gap: 26px; }
+    .contact-card { padding: 30px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<nav class="nav" id="nav">
+  <div class="container">
+    <a href="#top" class="logo">Golden <span>Place</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about" data-he="אודות" data-en="About">אודות</a></li>
+      <li><a href="#rooms" data-he="יחידות" data-en="Rooms">יחידות</a></li>
+      <li><a href="#amenities" data-he="מתקנים" data-en="Amenities">מתקנים</a></li>
+      <li><a href="#area" data-he="באזור" data-en="The Area">באזור</a></li>
+      <li><a href="#contact" data-he="צור קשר" data-en="Contact">צור קשר</a></li>
+    </ul>
+    <div class="nav-actions">
+      <button class="lang-btn" id="langBtn">English</button>
+      <a href="#contact" class="btn btn-gold btn-sm" data-he="הזמינו עכשיו" data-en="Book Now">הזמינו עכשיו</a>
+      <button class="menu-btn" id="menuBtn" aria-label="menu">☰</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <div class="hero-orb"></div>
+  <div class="container">
+    <div class="hero-content">
+      <span class="eyebrow" data-he="שלומי · גליל מערבי" data-en="Shlomi · Western Galilee">שלומי · גליל מערבי</span>
+      <h1 data-he="החופשה הבאה שלכם <em>בצפון</em> מתחילה כאן" data-en="Your next escape <em>up north</em> starts here">החופשה הבאה שלכם <em>בצפון</em> מתחילה כאן</h1>
+      <p data-he="אירוח שקט ומפנק בין הרי הגליל לים התיכון. דקות מראש הנקרה, חופי אכזיב ושבילי נחל בצת." data-en="A calm, comfortable stay between the Galilee hills and the Mediterranean. Minutes from Rosh HaNikra, Achziv beaches and the Betzet stream trails.">אירוח שקט ומפנק בין הרי הגליל לים התיכון. דקות מראש הנקרה, חופי אכזיב ושבילי נחל בצת.</p>
+      <div class="hero-buttons">
+        <a href="#contact" class="btn btn-gold" data-he="בדקו זמינות" data-en="Check Availability">בדקו זמינות</a>
+        <a href="#rooms" class="btn btn-outline" data-he="לצפייה ביחידות" data-en="View Rooms">לצפייה ביחידות</a>
+      </div>
+      <div class="hero-stats">
+        <!-- TODO: replace with your real numbers -->
+        <div class="stat"><strong>9.X</strong><span data-he="דירוג ב-Booking" data-en="Booking.com rating">דירוג ב-Booking</span></div>
+        <div class="stat"><strong>X</strong><span data-he="יחידות אירוח" data-en="Units">יחידות אירוח</span></div>
+        <div class="stat"><strong>10'</strong><span data-he="מהים" data-en="from the sea">מהים</span></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="container about-grid">
+    <div class="about-visual reveal">
+      <span class="placeholder-note" data-he="[ כאן תבוא תמונה ראשית ]" data-en="[ main photo goes here ]">[ כאן תבוא תמונה ראשית ]</span>
+    </div>
+    <div class="about-text reveal">
+      <span class="eyebrow" style="color:var(--gold-dark)" data-he="ברוכים הבאים" data-en="Welcome">ברוכים הבאים</span>
+      <h2 data-he="מקום קטן עם לב זהב" data-en="A small place with a golden heart">מקום קטן עם לב זהב</h2>
+      <p data-he="גולדן פלייס הוא מתחם אירוח בשלומי, בקצה הצפון-מערבי של ישראל. כאן תמצאו שקט, נוף ירוק ואירוח אישי – בסיס מושלם לטיולים בגליל המערבי ולימים רגועים ליד הים." data-en="Golden Place is a guest property in Shlomi, at the north-western tip of Israel. Expect quiet, green views and personal hospitality – a perfect base for exploring the Western Galilee and lazy days by the sea.">גולדן פלייס הוא מתחם אירוח בשלומי, בקצה הצפון-מערבי של ישראל. כאן תמצאו שקט, נוף ירוק ואירוח אישי – בסיס מושלם לטיולים בגליל המערבי ולימים רגועים ליד הים.</p>
+      <p data-he="[ ספרו כאן על המקום: מי אתם, מה מיוחד, למי זה מתאים ]" data-en="[ Tell your story here: who you are, what makes it special, who it's for ]">[ ספרו כאן על המקום: מי אתם, מה מיוחד, למי זה מתאים ]</p>
+      <ul class="about-points">
+        <li data-he="צ'ק-אין גמיש ואירוח אישי" data-en="Flexible check-in & personal hosting">צ'ק-אין גמיש ואירוח אישי</li>
+        <li data-he="מתאים לזוגות, משפחות וקבוצות" data-en="Great for couples, families & groups">מתאים לזוגות, משפחות וקבוצות</li>
+        <li data-he="חניה פרטית ללא תשלום" data-en="Free private parking">חניה פרטית ללא תשלום</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ROOMS ============ -->
+<section class="rooms" id="rooms">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow" data-he="היחידות שלנו" data-en="Our Rooms">היחידות שלנו</span>
+      <h2 data-he="בחרו את הפינה שלכם" data-en="Pick your corner">בחרו את הפינה שלכם</h2>
+      <p data-he="כל יחידה מאובזרת במלואה ומעוצבת לנוחות מקסימלית." data-en="Every unit is fully equipped and designed for maximum comfort.">כל יחידה מאובזרת במלואה ומעוצבת לנוחות מקסימלית.</p>
+    </div>
+    <div class="rooms-grid">
+      <!-- ROOM 1 -->
+      <div class="room-card reveal">
+        <div class="room-img r1"><span class="room-tag" data-he="הכי פופולרי" data-en="Most popular">הכי פופולרי</span></div>
+        <div class="room-body">
+          <h3 data-he="סוויטה זוגית" data-en="Couple's Suite">סוויטה זוגית</h3>
+          <p data-he="[ תיאור קצר של היחידה ]" data-en="[ Short description of the unit ]">[ תיאור קצר של היחידה ]</p>
+          <div class="room-meta">
+            <span data-he="👥 2 אורחים" data-en="👥 2 guests">👥 2 אורחים</span>
+            <span data-he="🛏️ מיטה זוגית" data-en="🛏️ Double bed">🛏️ מיטה זוגית</span>
+          </div>
+          <div class="room-footer">
+            <div class="price"><strong>₪XXX</strong> <small data-he="/ לילה" data-en="/ night">/ לילה</small></div>
+            <a href="#contact" class="btn btn-gold btn-sm" data-he="הזמנה" data-en="Book">הזמנה</a>
+          </div>
+        </div>
+      </div>
+      <!-- ROOM 2 -->
+      <div class="room-card reveal">
+        <div class="room-img r2"></div>
+        <div class="room-body">
+          <h3 data-he="דירה משפחתית" data-en="Family Apartment">דירה משפחתית</h3>
+          <p data-he="[ תיאור קצר של היחידה ]" data-en="[ Short description of the unit ]">[ תיאור קצר של היחידה ]</p>
+          <div class="room-meta">
+            <span data-he="👥 עד 5 אורחים" data-en="👥 Up to 5 guests">👥 עד 5 אורחים</span>
+            <span data-he="🍳 מטבח מלא" data-en="🍳 Full kitchen">🍳 מטבח מלא</span>
+          </div>
+          <div class="room-footer">
+            <div class="price"><strong>₪XXX</strong> <small data-he="/ לילה" data-en="/ night">/ לילה</small></div>
+            <a href="#contact" class="btn btn-gold btn-sm" data-he="הזמנה" data-en="Book">הזמנה</a>
+          </div>
+        </div>
+      </div>
+      <!-- ROOM 3 -->
+      <div class="room-card reveal">
+        <div class="room-img r3"></div>
+        <div class="room-body">
+          <h3 data-he="יחידת גן" data-en="Garden Unit">יחידת גן</h3>
+          <p data-he="[ תיאור קצר של היחידה ]" data-en="[ Short description of the unit ]">[ תיאור קצר של היחידה ]</p>
+          <div class="room-meta">
+            <span data-he="👥 עד 4 אורחים" data-en="👥 Up to 4 guests">👥 עד 4 אורחים</span>
+            <span data-he="🌿 חצר פרטית" data-en="🌿 Private yard">🌿 חצר פרטית</span>
+          </div>
+          <div class="room-footer">
+            <div class="price"><strong>₪XXX</strong> <small data-he="/ לילה" data-en="/ night">/ לילה</small></div>
+            <a href="#contact" class="btn btn-gold btn-sm" data-he="הזמנה" data-en="Book">הזמנה</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AMENITIES ============ -->
+<section id="amenities">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow" data-he="מה מחכה לכם" data-en="What's included">מה מחכה לכם</span>
+      <h2 data-he="כל מה שצריך לחופשה מושלמת" data-en="Everything for a perfect stay">כל מה שצריך לחופשה מושלמת</h2>
+    </div>
+    <div class="amen-grid">
+      <div class="amen reveal"><div class="icon">📶</div><h3 data-he="Wi-Fi מהיר" data-en="Fast Wi-Fi">Wi-Fi מהיר</h3><p data-he="בכל היחידות" data-en="In every unit">בכל היחידות</p></div>
+      <div class="amen reveal"><div class="icon">❄️</div><h3 data-he="מיזוג אוויר" data-en="Air Conditioning">מיזוג אוויר</h3><p data-he="קיץ וחורף" data-en="Summer & winter">קיץ וחורף</p></div>
+      <div class="amen reveal"><div class="icon">🍳</div><h3 data-he="מטבחון מאובזר" data-en="Equipped Kitchen">מטבחון מאובזר</h3><p data-he="כולל קפה ותה" data-en="Coffee & tea included">כולל קפה ותה</p></div>
+      <div class="amen reveal"><div class="icon">🚗</div><h3 data-he="חניה חינם" data-en="Free Parking">חניה חינם</h3><p data-he="צמוד ליחידה" data-en="Right by your door">צמוד ליחידה</p></div>
+      <div class="amen reveal"><div class="icon">📺</div><h3 data-he="טלוויזיה חכמה" data-en="Smart TV">טלוויזיה חכמה</h3><p data-he="נטפליקס ויוטיוב" data-en="Netflix & YouTube">נטפליקס ויוטיוב</p></div>
+      <div class="amen reveal"><div class="icon">🔥</div><h3 data-he="פינת על האש" data-en="BBQ Area">פינת על האש</h3><p data-he="[ ערכו לפי הקיים ]" data-en="[ edit to match ]">[ ערכו לפי הקיים ]</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ AREA ============ -->
+<section class="area" id="area">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow" data-he="מה עושים באזור" data-en="Explore nearby">מה עושים באזור</span>
+      <h2 data-he="הגליל המערבי בהישג יד" data-en="The Western Galilee at your doorstep">הגליל המערבי בהישג יד</h2>
+      <p data-he="ים, הרים, מערות ומסעדות – הכל במרחק נסיעה קצרה." data-en="Sea, mountains, grottoes and great food – all a short drive away.">ים, הרים, מערות ומסעדות – הכל במרחק נסיעה קצרה.</p>
+    </div>
+    <div class="area-grid">
+      <!-- TODO: check the drive times -->
+      <div class="spot reveal"><span class="dist" data-he="~10 דק' נסיעה" data-en="~10 min drive">~10 דק' נסיעה</span><h3 data-he="ראש הנקרה" data-en="Rosh HaNikra">ראש הנקרה</h3><p data-he="נקרות הגיר הלבנות והרכבל אל הים." data-en="White chalk grottoes and the cable car down to the sea.">נקרות הגיר הלבנות והרכבל אל הים.</p></div>
+      <div class="spot reveal"><span class="dist" data-he="~15 דק' נסיעה" data-en="~15 min drive">~15 דק' נסיעה</span><h3 data-he="חוף אכזיב" data-en="Achziv Beach">חוף אכזיב</h3><p data-he="בריכות טבעיות ושמורת טבע על קו המים." data-en="Natural tide pools and a seaside nature reserve.">בריכות טבעיות ושמורת טבע על קו המים.</p></div>
+      <div class="spot reveal"><span class="dist" data-he="~5 דק' נסיעה" data-en="~5 min drive">~5 דק' נסיעה</span><h3 data-he="נחל בצת" data-en="Betzet Stream">נחל בצת</h3><p data-he="מסלולי הליכה מוצלים ונופי גליל ירוקים." data-en="Shaded hiking trails and green Galilee views.">מסלולי הליכה מוצלים ונופי גליל ירוקים.</p></div>
+      <div class="spot reveal"><span class="dist" data-he="~25 דק' נסיעה" data-en="~25 min drive">~25 דק' נסיעה</span><h3 data-he="עכו העתיקה" data-en="Old Acre">עכו העתיקה</h3><p data-he="עיר צלבנית, שווקים ומסעדות דגים." data-en="Crusader city, markets and fish restaurants.">עיר צלבנית, שווקים ומסעדות דגים.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REVIEWS ============ -->
+<section id="reviews">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow" data-he="אורחים מספרים" data-en="Guest reviews">אורחים מספרים</span>
+      <h2 data-he="מה אומרים עלינו" data-en="What guests say">מה אומרים עלינו</h2>
+    </div>
+    <div class="reviews-grid">
+      <!-- TODO: paste real reviews from Booking / Airbnb -->
+      <div class="review reveal"><div class="stars">★★★★★</div><p data-he="[ ביקורת אמיתית מ-Booking ]" data-en="[ Real review from Booking.com ]">[ ביקורת אמיתית מ-Booking ]</p><div class="who">[ Name ]</div><div class="src">Booking.com</div></div>
+      <div class="review reveal"><div class="stars">★★★★★</div><p data-he="[ ביקורת אמיתית מ-Airbnb ]" data-en="[ Real review from Airbnb ]">[ ביקורת אמיתית מ-Airbnb ]</p><div class="who">[ Name ]</div><div class="src">Airbnb</div></div>
+      <div class="review reveal"><div class="stars">★★★★★</div><p data-he="[ ביקורת אמיתית ]" data-en="[ Real review ]">[ ביקורת אמיתית ]</p><div class="who">[ Name ]</div><div class="src">Google</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="contact" id="contact">
+  <div class="container contact-grid">
+    <div class="contact-card reveal">
+      <h2 data-he="מוכנים לחופשה?" data-en="Ready for a getaway?">מוכנים לחופשה?</h2>
+      <p data-he="שלחו לנו הודעה לבדיקת זמינות, או הזמינו דרך הפלטפורמה המועדפת עליכם." data-en="Message us to check availability, or book through your favorite platform.">שלחו לנו הודעה לבדיקת זמינות, או הזמינו דרך הפלטפורמה המועדפת עליכם.</p>
+      <div class="book-links">
+        <!-- TODO: put your real links / phone number here -->
+        <a class="book-link wa" id="waLink" href="https://wa.me/9725XXXXXXXX" target="_blank" rel="noopener"><span>WhatsApp</span><span>→</span></a>
+        <a class="book-link bk" href="https://www.booking.com/" target="_blank" rel="noopener"><span>Booking.com</span><span>→</span></a>
+        <a class="book-link ab" href="https://www.airbnb.com/" target="_blank" rel="noopener"><span>Airbnb</span><span>→</span></a>
+      </div>
+      <div class="contact-info">
+        <div data-he="📍 שלומי, גליל מערבי" data-en="📍 Shlomi, Western Galilee, Israel">📍 שלומי, גליל מערבי</div>
+        <div>📞 05X-XXX-XXXX</div>
+        <div>✉️ info@goldenplace.co.il</div>
+      </div>
+    </div>
+    <div class="map reveal">
+      <iframe src="https://maps.google.com/maps?q=Shlomi,Israel&z=14&output=embed" loading="lazy" title="map"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="container">
+    <div>© <span id="year"></span> Golden Place · <span data-he="שלומי" data-en="Shlomi">שלומי</span></div>
+    <div data-he="נבנה באהבה בגליל המערבי" data-en="Made with love in the Western Galilee">נבנה באהבה בגליל המערבי</div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp -->
+<a class="wa-float" id="waFloat" href="https://wa.me/9725XXXXXXXX" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32"><path d="M16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.5 1.7 6.5L3 29l6.7-1.7c1.9 1 4.1 1.6 6.3 1.6 7.2 0 13-5.8 13-13S23.2 3 16 3zm0 23.7c-2 0-3.9-.5-5.6-1.5l-.4-.2-4 1 1.1-3.9-.3-.4C5.8 20 5.3 18 5.3 16 5.3 10.1 10.1 5.3 16 5.3S26.7 10.1 26.7 16 21.9 26.7 16 26.7zm5.9-8c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.2 1.4 3.4c.2.2 2.4 3.6 5.7 5 .8.3 1.4.5 1.9.7.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
+</a>
+
+<script>
+  // ---------- CONFIG: edit these ----------
+  const WHATSAPP_NUMBER = "9725XXXXXXXX"; // international format, no + or dashes
+
+  // WhatsApp links with a prefilled message
+  const waMsg = {
+    he: "היי! אשמח לבדוק זמינות בגולדן פלייס 🙂",
+    en: "Hi! I'd like to check availability at Golden Place 🙂"
+  };
+  function updateWaLinks(lang) {
+    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(waMsg[lang])}`;
+    document.getElementById("waLink").href = url;
+    document.getElementById("waFloat").href = url;
+  }
+
+  // ---------- Language toggle (HE / EN) ----------
+  const langBtn = document.getElementById("langBtn");
+  function setLang(lang) {
+    document.documentElement.lang = lang;
+    document.documentElement.dir = lang === "he" ? "rtl" : "ltr";
+    document.querySelectorAll("[data-he]").forEach(el => {
+      el.innerHTML = el.dataset[lang];
+    });
+    langBtn.textContent = lang === "he" ? "English" : "עברית";
+    updateWaLinks(lang);
+    try { localStorage.setItem("gp-lang", lang); } catch (e) {}
+  }
+  langBtn.addEventListener("click", () => {
+    setLang(document.documentElement.lang === "he" ? "en" : "he");
+  });
+  let saved = "he";
+  try { saved = localStorage.getItem("gp-lang") || "he"; } catch (e) {}
+  setLang(saved);
+
+  // ---------- Nav background on scroll ----------
+  const nav = document.getElementById("nav");
+  window.addEventListener("scroll", () => {
+    nav.classList.toggle("scrolled", window.scrollY > 40);
+  });
+
+  // ---------- Mobile menu ----------
+  const navLinks = document.getElementById("navLinks");
+  document.getElementById("menuBtn").addEventListener("click", () => navLinks.classList.toggle("open"));
+  navLinks.querySelectorAll("a").forEach(a => a.addEventListener("click", () => navLinks.classList.remove("open")));
+
+  // ---------- Reveal on scroll ----------
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("visible"); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+  // ---------- Year ----------
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
