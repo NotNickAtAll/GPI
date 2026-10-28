@@ -3,22 +3,43 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Golden Place | גולדן פלייס - שלומי</title>
-<meta name="description" content="Golden Place - vacation rental in Shlomi, Western Galilee, Israel">
+<title>Golden Place | גולדן פלייס – סוויטות עם ג'קוזי בשלומי, גליל מערבי</title>
+<meta name="description" content="גולדן פלייס – מתחם נופש חדש ומפנק בשלומי, גליל מערבי. 3 סוויטות פרטיות עם ג'קוזי, מטבחון וחצר פרטית, שתיים מהן עם בריכה פרטית. Golden Place – 3 private jacuzzi suites in Shlomi, Western Galilee, Israel.">
+<meta property="og:title" content="Golden Place | גולדן פלייס – שלומי">
+<meta property="og:description" content="3 סוויטות פרטיות עם ג'קוזי בגליל המערבי, שתיים מהן עם בריכה פרטית בגינה.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="images/lake-suite-1.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700&family=Frank+Ruhl+Libre:wght@500;700&family=Playfair+Display:wght@500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LodgingBusiness",
+  "name": "Golden Place",
+  "alternateName": "גולדן פלייס",
+  "description": "3 private suites with indoor jacuzzi in Shlomi, Western Galilee. Two suites have a private pool in their own garden.",
+  "image": "images/lake-suite-1.jpg",
+  "address": { "@type": "PostalAddress", "addressLocality": "Shlomi", "addressRegion": "Western Galilee", "addressCountry": "IL" },
+  "amenityFeature": [
+    { "@type": "LocationFeatureSpecification", "name": "Jacuzzi", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Private pool", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Kitchenette", "value": true },
+    { "@type": "LocationFeatureSpecification", "name": "Air conditioning", "value": true }
+  ]
+}
+</script>
 <style>
   :root {
     --gold: #c9a24a;
     --gold-light: #e8c97a;
-    --gold-dark: #9a7a2e;
+    --gold-dark: #8a6c22;
     --ink: #1a1a1f;
     --ink-soft: #2a2a31;
     --cream: #faf6ee;
     --sand: #f1e8d6;
     --text: #3b3a36;
-    --muted: #7a7466;
+    --muted: #6e685b;
     --white: #ffffff;
     --radius: 18px;
     --shadow: 0 10px 30px rgba(26, 26, 31, 0.08);
@@ -37,6 +58,8 @@
   }
   h1, h2, h3 { font-family: var(--heading-font); color: var(--ink); line-height: 1.25; }
   a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+  [hidden] { display: none !important; }
   .container { width: min(1150px, 100% - 32px); margin-inline: auto; }
   section { padding: 96px 0; }
 
@@ -59,13 +82,13 @@
     letter-spacing: .5px;
   }
   .logo span { color: var(--gold-light); }
-  .nav-links { display: flex; gap: 28px; list-style: none; }
-  .nav-links a { color: rgba(255,255,255,.85); font-size: .95rem; transition: color .2s; }
+  .nav-links { display: flex; gap: 26px; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,.88); font-size: .95rem; transition: color .2s; }
   .nav-links a:hover { color: var(--gold-light); }
   .nav-actions { display: flex; align-items: center; gap: 10px; }
   .lang-btn {
     background: transparent; color: var(--white);
-    border: 1px solid rgba(255,255,255,.4); border-radius: 999px;
+    border: 1px solid rgba(255,255,255,.45); border-radius: 999px;
     padding: 6px 14px; cursor: pointer; font-family: inherit; font-size: .85rem;
     transition: border-color .2s, color .2s;
   }
@@ -87,7 +110,7 @@
     background: linear-gradient(135deg, var(--gold-light), var(--gold));
     color: var(--ink); box-shadow: 0 8px 24px rgba(201,162,74,.35);
   }
-  .btn-outline { border: 1px solid rgba(255,255,255,.5); color: var(--white); background: transparent; }
+  .btn-outline { border: 1px solid rgba(255,255,255,.6); color: var(--white); background: transparent; }
   .btn-outline:hover { border-color: var(--gold-light); color: var(--gold-light); }
   .btn-sm { padding: 9px 20px; font-size: .9rem; }
 
@@ -95,42 +118,36 @@
   .hero {
     min-height: 100vh; display: flex; align-items: center; position: relative;
     background:
-      radial-gradient(ellipse at 20% 20%, rgba(232,201,122,.25), transparent 50%),
-      radial-gradient(ellipse at 80% 80%, rgba(201,162,74,.18), transparent 55%),
-      linear-gradient(160deg, #15151a 0%, #24242c 55%, #1a1a1f 100%);
+      linear-gradient(90deg, rgba(15,15,20,.88) 0%, rgba(15,15,20,.6) 55%, rgba(15,15,20,.35) 100%),
+      url("images/lake-suite-1.jpg") center / cover no-repeat,
+      #1a1a1f;
     color: var(--white); overflow: hidden; padding: 120px 0 80px;
   }
-  .hero::before {
-    content: ""; position: absolute; inset: 0;
-    background-image: radial-gradient(rgba(255,255,255,.06) 1px, transparent 1px);
-    background-size: 28px 28px; pointer-events: none;
+  html[dir="rtl"] .hero {
+    background:
+      linear-gradient(270deg, rgba(15,15,20,.88) 0%, rgba(15,15,20,.6) 55%, rgba(15,15,20,.35) 100%),
+      url("images/lake-suite-1.jpg") center / cover no-repeat,
+      #1a1a1f;
   }
-  .hero-orb {
-    position: absolute; width: 520px; height: 520px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(232,201,122,.35), transparent 65%);
-    inset-inline-end: -140px; top: 10%; filter: blur(10px);
-    animation: float 9s ease-in-out infinite;
-  }
-  @keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-30px); } }
   .hero-content { position: relative; max-width: 680px; }
   .eyebrow {
     display: inline-block; color: var(--gold-light); font-size: .85rem;
     letter-spacing: 3px; text-transform: uppercase; margin-bottom: 18px;
     border-bottom: 1px solid var(--gold); padding-bottom: 6px;
   }
-  .hero h1 { color: var(--white); font-size: clamp(2.6rem, 6vw, 4.6rem); margin-bottom: 20px; }
+  .hero h1 { color: var(--white); font-size: clamp(2.4rem, 5.6vw, 4.3rem); margin-bottom: 20px; }
   .hero h1 em { font-style: normal; color: var(--gold-light); }
-  .hero p { font-size: 1.15rem; color: rgba(255,255,255,.75); margin-bottom: 36px; max-width: 540px; }
+  .hero p { font-size: 1.15rem; color: rgba(255,255,255,.88); margin-bottom: 36px; max-width: 560px; }
   .hero-buttons { display: flex; gap: 14px; flex-wrap: wrap; }
   .hero-stats {
     display: flex; gap: 40px; margin-top: 56px; flex-wrap: wrap;
-    border-top: 1px solid rgba(255,255,255,.12); padding-top: 28px;
+    border-top: 1px solid rgba(255,255,255,.2); padding-top: 28px;
   }
   .stat strong { display: block; font-family: var(--heading-font); font-size: 1.9rem; color: var(--gold-light); }
-  .stat span { font-size: .9rem; color: rgba(255,255,255,.6); }
+  .stat span { font-size: .9rem; color: rgba(255,255,255,.8); }
 
   /* ---------- SECTION HEADINGS ---------- */
-  .section-head { text-align: center; max-width: 620px; margin: 0 auto 56px; }
+  .section-head { text-align: center; max-width: 640px; margin: 0 auto 56px; }
   .section-head .eyebrow { color: var(--gold-dark); border-color: var(--gold); }
   .section-head h2 { font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 14px; }
   .section-head p { color: var(--muted); }
@@ -138,27 +155,19 @@
   /* ---------- ABOUT ---------- */
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
   .about-visual {
-    aspect-ratio: 4/5; border-radius: var(--radius); position: relative; overflow: hidden;
-    background:
-      linear-gradient(180deg, transparent 55%, rgba(26,26,31,.55)),
-      linear-gradient(135deg, #e8c97a 0%, #c9a24a 40%, #6b5a35 100%);
-    box-shadow: var(--shadow);
-    display: flex; align-items: flex-end; padding: 28px;
+    border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow);
+    aspect-ratio: 4/5; position: relative; border: none; padding: 0; cursor: zoom-in; width: 100%;
+    background: var(--sand);
   }
-  .about-visual .placeholder-note { color: rgba(255,255,255,.9); font-size: .9rem; }
-  .about-visual::after {
-    content: ""; position: absolute; width: 160px; height: 160px; border-radius: 50%;
-    border: 2px solid rgba(255,255,255,.35); top: 30px; inset-inline-end: 30px;
-  }
+  .about-visual img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
+  .about-visual:hover img { transform: scale(1.04); }
   .about-text h2 { font-size: clamp(1.9rem, 3.5vw, 2.6rem); margin-bottom: 20px; }
   .about-text p { margin-bottom: 18px; }
   .about-points { list-style: none; margin-top: 26px; display: grid; gap: 12px; }
-  .about-points li { display: flex; gap: 12px; align-items: center; }
-  .about-points li::before {
-    content: "✦"; color: var(--gold); font-size: 1rem;
-  }
+  .about-points li { display: flex; gap: 12px; align-items: flex-start; }
+  .about-points li::before { content: "✦"; color: var(--gold); font-size: 1rem; line-height: 1.7; }
 
-  /* ---------- ROOMS ---------- */
+  /* ---------- SUITES ---------- */
   .rooms { background: var(--sand); }
   .rooms-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 28px; }
   .room-card {
@@ -167,26 +176,34 @@
     display: flex; flex-direction: column;
   }
   .room-card:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(26,26,31,.14); }
-  .room-img { height: 210px; position: relative; }
-  .room-img.r1 { background: linear-gradient(135deg, #2a2a31, #4a4130 60%, #c9a24a); }
-  .room-img.r2 { background: linear-gradient(135deg, #3a3326, #9a7a2e 55%, #e8c97a); }
-  .room-img.r3 { background: linear-gradient(135deg, #1a1a1f, #2f3a3a 55%, #8fa39a); }
-  .room-tag {
-    position: absolute; top: 16px; inset-inline-start: 16px;
-    background: rgba(26,26,31,.75); color: var(--gold-light);
-    padding: 4px 14px; border-radius: 999px; font-size: .8rem;
+  .room-img {
+    height: 240px; position: relative; overflow: hidden; border: none; padding: 0;
+    cursor: zoom-in; width: 100%; background: var(--ink); display: block;
   }
+  .room-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
+  .room-card:hover .room-img img { transform: scale(1.05); }
+  .room-tag, .photo-count {
+    position: absolute; top: 14px;
+    background: rgba(20,20,26,.8); color: var(--gold-light);
+    padding: 4px 14px; border-radius: 999px; font-size: .8rem; font-family: 'Heebo', sans-serif;
+  }
+  .room-tag { inset-inline-start: 14px; }
+  .photo-count { inset-inline-end: 14px; color: #fff; }
   .room-body { padding: 26px; flex: 1; display: flex; flex-direction: column; }
   .room-body h3 { font-size: 1.4rem; margin-bottom: 8px; }
   .room-body p { color: var(--muted); font-size: .95rem; margin-bottom: 18px; }
-  .room-meta { display: flex; gap: 16px; flex-wrap: wrap; font-size: .88rem; color: var(--text); margin-bottom: 22px; }
+  .room-meta { display: flex; gap: 10px; flex-wrap: wrap; font-size: .86rem; color: var(--text); margin-bottom: 22px; }
   .room-meta span { background: var(--cream); padding: 4px 12px; border-radius: 8px; }
-  .room-footer { margin-top: auto; display: flex; justify-content: space-between; align-items: center; }
-  .price strong { font-family: var(--heading-font); font-size: 1.4rem; color: var(--ink); }
-  .price small { color: var(--muted); }
+  .room-footer { margin-top: auto; display: flex; justify-content: space-between; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .link-btn {
+    background: none; border: none; font-family: inherit; font-size: .92rem; color: var(--gold-dark);
+    cursor: pointer; text-decoration: underline; text-underline-offset: 3px;
+  }
 
   /* ---------- AMENITIES ---------- */
-  .amen-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 20px; }
+  .amen-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  @media (max-width: 860px) { .amen-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .amen-grid { grid-template-columns: 1fr; } }
   .amen {
     background: var(--white); border-radius: var(--radius); padding: 28px 22px;
     text-align: center; border: 1px solid #efe6d2; transition: border-color .3s, transform .3s;
@@ -200,46 +217,70 @@
   }
   .amen h3 { font-size: 1.1rem; margin-bottom: 6px; }
   .amen p { font-size: .9rem; color: var(--muted); }
+  .note {
+    margin-top: 32px; text-align: center; color: var(--muted); font-size: .95rem;
+  }
+
+  /* ---------- GALLERY ---------- */
+  .gallery { background: var(--sand); }
+  .filters { display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin-bottom: 30px; }
+  .filter-btn {
+    background: var(--white); border: 1px solid #e3d6b8; color: var(--text);
+    padding: 8px 20px; border-radius: 999px; cursor: pointer; font-family: inherit; font-size: .92rem;
+    transition: background .2s, color .2s, border-color .2s;
+  }
+  .filter-btn:hover { border-color: var(--gold); }
+  .filter-btn[aria-pressed="true"] { background: var(--ink); color: var(--gold-light); border-color: var(--ink); }
+  .gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 14px; }
+  .g-item {
+    border: none; padding: 0; cursor: zoom-in; border-radius: 14px; overflow: hidden;
+    aspect-ratio: 4/3; background: var(--ink); box-shadow: var(--shadow);
+  }
+  .g-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s, opacity .3s; }
+  .g-item:hover img { transform: scale(1.06); }
+
+  /* ---------- LIGHTBOX ---------- */
+  .lb {
+    position: fixed; inset: 0; z-index: 300; background: rgba(10,10,14,.94);
+    display: flex; align-items: center; justify-content: center; padding: 60px 70px;
+  }
+  .lb figure { max-width: 100%; max-height: 100%; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .lb img { max-width: 100%; max-height: calc(100vh - 160px); object-fit: contain; border-radius: 8px; }
+  .lb figcaption { color: rgba(255,255,255,.88); text-align: center; font-size: .95rem; }
+  .lb button {
+    position: absolute; background: rgba(255,255,255,.12); color: #fff; border: none; cursor: pointer;
+    width: 48px; height: 48px; border-radius: 50%; font-size: 1.6rem; display: grid; place-items: center;
+    transition: background .2s;
+  }
+  .lb button:hover { background: rgba(255,255,255,.25); }
+  .lb-close { top: 16px; inset-inline-end: 16px; }
+  .lb-prev { inset-inline-start: 12px; top: 50%; transform: translateY(-50%); }
+  .lb-next { inset-inline-end: 12px; top: 50%; transform: translateY(-50%); }
+  .lb-count { position: absolute; top: 26px; inset-inline-start: 24px; color: rgba(255,255,255,.7); font-size: .9rem; }
 
   /* ---------- AREA ---------- */
-  .area { background: var(--ink); color: rgba(255,255,255,.8); }
+  .area { background: var(--ink); color: rgba(255,255,255,.85); }
   .area .section-head h2 { color: var(--white); }
-  .area .section-head p { color: rgba(255,255,255,.6); }
+  .area .section-head p { color: rgba(255,255,255,.7); }
   .area .section-head .eyebrow { color: var(--gold-light); }
   .area-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
   .spot {
     background: var(--ink-soft); border-radius: var(--radius); padding: 26px;
-    border: 1px solid rgba(255,255,255,.06); transition: border-color .3s;
+    border: 1px solid rgba(255,255,255,.08); transition: border-color .3s;
   }
   .spot:hover { border-color: var(--gold); }
   .spot .dist { color: var(--gold-light); font-size: .85rem; }
   .spot h3 { color: var(--white); font-size: 1.2rem; margin: 6px 0 8px; }
-  .spot p { font-size: .92rem; color: rgba(255,255,255,.6); }
-
-  /* ---------- REVIEWS ---------- */
-  .reviews-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; }
-  .review {
-    background: var(--white); border-radius: var(--radius); padding: 30px; box-shadow: var(--shadow);
-    position: relative;
-  }
-  .review::before {
-    content: "“"; position: absolute; top: 4px; inset-inline-end: 22px;
-    font-family: 'Playfair Display', serif; font-size: 5rem; color: var(--gold-light); opacity: .5;
-  }
-  .stars { color: var(--gold); letter-spacing: 2px; margin-bottom: 12px; }
-  .review p { margin-bottom: 18px; font-size: .97rem; }
-  .review .who { font-weight: 500; color: var(--ink); }
-  .review .src { font-size: .82rem; color: var(--muted); }
+  .spot p { font-size: .92rem; color: rgba(255,255,255,.7); }
 
   /* ---------- CONTACT ---------- */
-  .contact { background: var(--sand); }
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: stretch; }
   .contact-card {
     background: var(--ink); color: var(--white); border-radius: var(--radius); padding: 44px;
     display: flex; flex-direction: column; gap: 18px;
   }
   .contact-card h2 { color: var(--white); font-size: 2rem; }
-  .contact-card p { color: rgba(255,255,255,.7); }
+  .contact-card p { color: rgba(255,255,255,.78); }
   .book-links { display: grid; gap: 12px; margin-top: 8px; }
   .book-link {
     display: flex; justify-content: space-between; align-items: center;
@@ -249,16 +290,17 @@
   .book-link:hover { transform: translateY(-2px); filter: brightness(1.08); }
   .book-link.wa { background: #25d366; color: #0b3d1f; }
   .book-link.bk { background: #003580; color: var(--white); }
-  .book-link.ab { background: #ff5a5f; color: var(--white); }
-  .contact-info { display: grid; gap: 8px; font-size: .95rem; color: rgba(255,255,255,.75); margin-top: auto; }
-  .map {
-    border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); min-height: 380px;
-  }
+  .book-link.ab { background: #e0484e; color: var(--white); }
+  .book-link.zt { background: var(--gold-light); color: var(--ink); }
+  .contact-info { display: grid; gap: 8px; font-size: .95rem; color: rgba(255,255,255,.82); margin-top: auto; }
+  .contact-info a { text-decoration: underline; text-underline-offset: 3px; }
+  .map { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); min-height: 380px; }
   .map iframe { width: 100%; height: 100%; min-height: 380px; border: 0; display: block; }
 
   /* ---------- FOOTER ---------- */
-  footer { background: #111114; color: rgba(255,255,255,.55); padding: 36px 0; font-size: .9rem; }
+  footer { background: #111114; color: rgba(255,255,255,.65); padding: 36px 0; font-size: .9rem; }
   footer .container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 14px; }
+  footer a { text-decoration: underline; text-underline-offset: 3px; }
 
   /* ---------- FLOATING WHATSAPP ---------- */
   .wa-float {
@@ -282,10 +324,6 @@
   }
   .skip-link:focus { top: 12px; }
   :focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; border-radius: 4px; }
-  .sr-only {
-    position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
-    overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0;
-  }
 
   /* ---------- ACCESSIBILITY WIDGET ---------- */
   .a11y-toggle {
@@ -303,7 +341,6 @@
     box-shadow: 0 16px 48px rgba(0,0,0,.25); padding: 20px;
     font-family: Arial, 'Heebo', sans-serif; font-size: 16px; line-height: 1.4;
   }
-  .a11y-panel[hidden] { display: none; }
   .a11y-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
   .a11y-head h2 { font-family: inherit; font-size: 18px; color: #1a1a1f; }
   .a11y-close { background: none; border: none; font-size: 22px; cursor: pointer; color: #1a1a1f; line-height: 1; padding: 4px 8px; }
@@ -323,34 +360,24 @@
   .a11y-foot a { color: #1f5fbf; text-decoration: underline; font-size: 14px; }
 
   /* ---------- ACCESSIBILITY MODES ---------- */
-  /* high contrast */
-  body.a11y-contrast, body.a11y-contrast *:not(svg):not(path) {
+  body.a11y-contrast, body.a11y-contrast *:not(svg):not(path):not(img) {
     background-color: #000 !important; background-image: none !important;
     color: #fff !important; border-color: #fff !important; box-shadow: none !important; text-shadow: none !important;
   }
   body.a11y-contrast a, body.a11y-contrast h1, body.a11y-contrast h2, body.a11y-contrast h3,
   body.a11y-contrast em, body.a11y-contrast strong { color: #ffeb3b !important; }
-  body.a11y-contrast .btn, body.a11y-contrast .book-link, body.a11y-contrast .a11y-btn { border: 2px solid #ffeb3b !important; }
-  body.a11y-contrast .hero::before, body.a11y-contrast .hero-orb { display: none; }
-  /* grayscale (applied per element so fixed positioning keeps working) */
+  body.a11y-contrast .btn, body.a11y-contrast .book-link, body.a11y-contrast .a11y-btn, body.a11y-contrast .filter-btn { border: 2px solid #ffeb3b !important; }
   body.a11y-gray > *:not(.a11y-panel):not(.a11y-toggle) { filter: grayscale(1); }
-  /* highlight links */
   body.a11y-links a { text-decoration: underline !important; outline: 2px dashed #ffeb3b; outline-offset: 2px; }
-  /* readable font */
   body.a11y-font, body.a11y-font * { font-family: Arial, Helvetica, sans-serif !important; letter-spacing: .02em; }
-  /* line spacing */
   body.a11y-spacing p, body.a11y-spacing li, body.a11y-spacing span { line-height: 2.1 !important; word-spacing: .12em; }
-  /* stop animations */
   body.a11y-still *, body.a11y-still *::before, body.a11y-still *::after {
     animation: none !important; transition: none !important; scroll-behavior: auto !important;
   }
   body.a11y-still .reveal { opacity: 1; transform: none; }
-  /* big cursor */
   body.a11y-cursor, body.a11y-cursor * {
     cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 24 24'%3E%3Cpath d='M4 2l16 10-7 1.5L9.5 21z' fill='black' stroke='white' stroke-width='1.5'/%3E%3C/svg%3E") 4 2, auto !important;
   }
-
-  /* respect OS "reduce motion" setting */
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
     .reveal { opacity: 1; transform: none; }
@@ -360,7 +387,7 @@
   @media (max-width: 860px) {
     section { padding: 72px 0; }
     .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 36px; }
-    .about-visual { aspect-ratio: 16/11; }
+    .about-visual { aspect-ratio: 4/3; }
     .menu-btn { display: block; }
     .nav-links {
       position: fixed; top: 0; inset-inline-end: 0; height: 100vh; width: 260px;
@@ -372,6 +399,8 @@
     .nav-actions .btn { display: none; }
     .hero-stats { gap: 26px; }
     .contact-card { padding: 30px; }
+    .lb { padding: 60px 12px; }
+    .lb-prev, .lb-next { top: auto !important; bottom: 18px; transform: none !important; }
   }
 </style>
 </head>
@@ -380,42 +409,42 @@
 <a href="#main" class="skip-link" data-he="דילוג לתוכן הראשי" data-en="Skip to main content">דילוג לתוכן הראשי</a>
 
 <!-- ============ NAV ============ -->
-<nav class="nav" id="nav">
+<nav class="nav" id="nav" aria-label="Main">
   <div class="container">
     <a href="#top" class="logo">Golden <span>Place</span></a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#about" data-he="אודות" data-en="About">אודות</a></li>
-      <li><a href="#rooms" data-he="יחידות" data-en="Rooms">יחידות</a></li>
-      <li><a href="#amenities" data-he="מתקנים" data-en="Amenities">מתקנים</a></li>
+      <li><a href="#suites" data-he="הסוויטות" data-en="Suites">הסוויטות</a></li>
+      <li><a href="#amenities" data-he="מה כלול" data-en="What's included">מה כלול</a></li>
+      <li><a href="#gallery" data-he="גלריה" data-en="Gallery">גלריה</a></li>
       <li><a href="#area" data-he="באזור" data-en="The Area">באזור</a></li>
       <li><a href="#contact" data-he="צור קשר" data-en="Contact">צור קשר</a></li>
     </ul>
     <div class="nav-actions">
-      <button class="lang-btn" id="langBtn">English</button>
-      <a href="#contact" class="btn btn-gold btn-sm" data-he="הזמינו עכשיו" data-en="Book Now">הזמינו עכשיו</a>
-      <button class="menu-btn" id="menuBtn" aria-label="Menu / תפריט" aria-expanded="false" aria-controls="navLinks">☰</button>
+      <button class="lang-btn" id="langBtn" lang="en">English</button>
+      <a href="#contact" class="btn btn-gold btn-sm" data-he="בדיקת זמינות" data-en="Check availability">בדיקת זמינות</a>
+      <button class="menu-btn" id="menuBtn" data-label-he="תפריט" data-label-en="Menu" aria-label="תפריט" aria-expanded="false" aria-controls="navLinks">☰</button>
     </div>
   </div>
 </nav>
 
-<!-- ============ HERO ============ -->
 <main id="main" tabindex="-1">
+
+<!-- ============ HERO ============ -->
 <header class="hero" id="top">
-  <div class="hero-orb" aria-hidden="true"></div>
   <div class="container">
     <div class="hero-content">
       <span class="eyebrow" data-he="שלומי · גליל מערבי" data-en="Shlomi · Western Galilee">שלומי · גליל מערבי</span>
-      <h1 data-he="החופשה הבאה שלכם <em>בצפון</em> מתחילה כאן" data-en="Your next escape <em>up north</em> starts here">החופשה הבאה שלכם <em>בצפון</em> מתחילה כאן</h1>
-      <p data-he="אירוח שקט ומפנק בין הרי הגליל לים התיכון. דקות מראש הנקרה, חופי אכזיב ושבילי נחל בצת." data-en="A calm, comfortable stay between the Galilee hills and the Mediterranean. Minutes from Rosh HaNikra, Achziv beaches and the Betzet stream trails.">אירוח שקט ומפנק בין הרי הגליל לים התיכון. דקות מראש הנקרה, חופי אכזיב ושבילי נחל בצת.</p>
+      <h1 data-he="3 סוויטות פרטיות <em>עם ג'קוזי</em> בלב הגליל המערבי" data-en="3 private suites <em>with jacuzzi</em> in the Western Galilee">3 סוויטות פרטיות <em>עם ג'קוזי</em> בלב הגליל המערבי</h1>
+      <p data-he="מתחם נופש חדש ומפנק בשלומי. כל סוויטה ממוקמת בנפרד ומעוצבת בסגנון משלה, עם ג'קוזי פנימי, מטבחון וחצר פרטית – ובשתיים מהן גם בריכה פרטית בגינה." data-en="A new, luxurious holiday complex in Shlomi. Each suite has its own private location and its own design, with an indoor jacuzzi, a kitchenette and a private yard – and two of them also have a private pool in the garden.">מתחם נופש חדש ומפנק בשלומי. כל סוויטה ממוקמת בנפרד ומעוצבת בסגנון משלה, עם ג'קוזי פנימי, מטבחון וחצר פרטית – ובשתיים מהן גם בריכה פרטית בגינה.</p>
       <div class="hero-buttons">
-        <a href="#contact" class="btn btn-gold" data-he="בדקו זמינות" data-en="Check Availability">בדקו זמינות</a>
-        <a href="#rooms" class="btn btn-outline" data-he="לצפייה ביחידות" data-en="View Rooms">לצפייה ביחידות</a>
+        <a href="#contact" class="btn btn-gold" data-he="בדיקת זמינות" data-en="Check availability">בדיקת זמינות</a>
+        <a href="#suites" class="btn btn-outline" data-he="לצפייה בסוויטות" data-en="View the suites">לצפייה בסוויטות</a>
       </div>
       <div class="hero-stats">
-        <!-- TODO: replace with your real numbers -->
-        <div class="stat"><strong>9.X</strong><span data-he="דירוג ב-Booking" data-en="Booking.com rating">דירוג ב-Booking</span></div>
-        <div class="stat"><strong>X</strong><span data-he="יחידות אירוח" data-en="Units">יחידות אירוח</span></div>
-        <div class="stat"><strong>10'</strong><span data-he="מהים" data-en="from the sea">מהים</span></div>
+        <div class="stat"><strong>3</strong><span data-he="סוויטות פרטיות" data-en="private suites">סוויטות פרטיות</span></div>
+        <div class="stat"><strong>2</strong><span data-he="בריכות פרטיות בגינה" data-en="private garden pools">בריכות פרטיות בגינה</span></div>
+        <div class="stat"><strong data-he="ג'קוזי" data-en="Jacuzzi">ג'קוזי</strong><span data-he="בכל סוויטה" data-en="in every suite">בכל סוויטה</span></div>
       </div>
     </div>
   </div>
@@ -424,80 +453,101 @@
 <!-- ============ ABOUT ============ -->
 <section id="about">
   <div class="container about-grid">
-    <div class="about-visual reveal">
-      <span class="placeholder-note" data-he="[ כאן תבוא תמונה ראשית ]" data-en="[ main photo goes here ]">[ כאן תבוא תמונה ראשית ]</span>
-    </div>
+    <button class="about-visual reveal" data-open="outdoor" data-index="1" data-label-he="הגדלת תמונה: הגינה הפרטית עם הבריכה" data-label-en="Enlarge photo: the private garden with the pool" aria-label="הגדלת תמונה: הגינה הפרטית עם הבריכה">
+      <img src="images/garden-pool-2-sm.jpg" srcset="images/garden-pool-2-sm.jpg 800w, images/garden-pool-2.jpg 1600w" sizes="(max-width: 860px) 100vw, 560px" alt="" loading="lazy">
+    </button>
     <div class="about-text reveal">
       <span class="eyebrow" style="color:var(--gold-dark)" data-he="ברוכים הבאים" data-en="Welcome">ברוכים הבאים</span>
-      <h2 data-he="מקום קטן עם לב זהב" data-en="A small place with a golden heart">מקום קטן עם לב זהב</h2>
-      <p data-he="גולדן פלייס הוא מתחם אירוח בשלומי, בקצה הצפון-מערבי של ישראל. כאן תמצאו שקט, נוף ירוק ואירוח אישי – בסיס מושלם לטיולים בגליל המערבי ולימים רגועים ליד הים." data-en="Golden Place is a guest property in Shlomi, at the north-western tip of Israel. Expect quiet, green views and personal hospitality – a perfect base for exploring the Western Galilee and lazy days by the sea.">גולדן פלייס הוא מתחם אירוח בשלומי, בקצה הצפון-מערבי של ישראל. כאן תמצאו שקט, נוף ירוק ואירוח אישי – בסיס מושלם לטיולים בגליל המערבי ולימים רגועים ליד הים.</p>
-      <p data-he="[ ספרו כאן על המקום: מי אתם, מה מיוחד, למי זה מתאים ]" data-en="[ Tell your story here: who you are, what makes it special, who it's for ]">[ ספרו כאן על המקום: מי אתם, מה מיוחד, למי זה מתאים ]</p>
+      <h2 data-he="ברוכים הבאים לגולדן פלייס" data-en="Welcome to Golden Place">ברוכים הבאים לגולדן פלייס</h2>
+      <p data-he="גולדן פלייס הוא מתחם נופש חדש ויוקרתי ביישוב שלומי שבגליל המערבי, בקצה הצפון-מערבי של ישראל. במתחם 3 סוויטות חדשות בעיצוב מודרני, כל אחת במיקום פרטי משלה – כך שאפשר ליהנות משקט ומפרטיות מלאה." data-en="Golden Place is a new, luxurious holiday complex in Shlomi, in Israel's Western Galilee. It has 3 new suites in a modern design, each in its own private location – so you get full quiet and privacy.">גולדן פלייס הוא מתחם נופש חדש ויוקרתי ביישוב שלומי שבגליל המערבי, בקצה הצפון-מערבי של ישראל. במתחם 3 סוויטות חדשות בעיצוב מודרני, כל אחת במיקום פרטי משלה – כך שאפשר ליהנות משקט ומפרטיות מלאה.</p>
+      <p data-he="המתחם קרוב לכל האטרקציות, המסעדות והחופים של הגליל – ראש הנקרה, חופי אכזיב ומבצר יחיעם במרחק נסיעה קצרה." data-en="It's close to all the Galilee's attractions, restaurants and beaches – Rosh HaNikra, the Achziv beaches and Yehiam Fortress are a short drive away.">המתחם קרוב לכל האטרקציות, המסעדות והחופים של הגליל – ראש הנקרה, חופי אכזיב ומבצר יחיעם במרחק נסיעה קצרה.</p>
       <ul class="about-points">
-        <li data-he="צ'ק-אין גמיש ואירוח אישי" data-en="Flexible check-in & personal hosting">צ'ק-אין גמיש ואירוח אישי</li>
-        <li data-he="מתאים לזוגות, משפחות וקבוצות" data-en="Great for couples, families & groups">מתאים לזוגות, משפחות וקבוצות</li>
-        <li data-he="חניה פרטית ללא תשלום" data-en="Free private parking">חניה פרטית ללא תשלום</li>
+        <li data-he="כל סוויטה במיקום נפרד – פרטיות מלאה" data-en="Each suite in its own location – full privacy">כל סוויטה במיקום נפרד – פרטיות מלאה</li>
+        <li data-he="ג'קוזי פנימי בכל אחת מהסוויטות" data-en="An indoor jacuzzi in every suite">ג'קוזי פנימי בכל אחת מהסוויטות</li>
+        <li data-he="בריכה פרטית בגינה בשתי סוויטות (פעילה מחודש יוני)" data-en="A private garden pool in two of the suites (open from June)">בריכה פרטית בגינה בשתי סוויטות (פעילה מחודש יוני)</li>
+        <li data-he="ארוחת בוקר כפרית עשירה – בהזמנה מראש" data-en="A generous country breakfast – order in advance">ארוחת בוקר כפרית עשירה – בהזמנה מראש</li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- ============ ROOMS ============ -->
-<section class="rooms" id="rooms">
+<!-- ============ SUITES ============ -->
+<section class="rooms" id="suites">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow" data-he="היחידות שלנו" data-en="Our Rooms">היחידות שלנו</span>
-      <h2 data-he="בחרו את הפינה שלכם" data-en="Pick your corner">בחרו את הפינה שלכם</h2>
-      <p data-he="כל יחידה מאובזרת במלואה ומעוצבת לנוחות מקסימלית." data-en="Every unit is fully equipped and designed for maximum comfort.">כל יחידה מאובזרת במלואה ומעוצבת לנוחות מקסימלית.</p>
+      <span class="eyebrow" data-he="הסוויטות שלנו" data-en="Our suites">הסוויטות שלנו</span>
+      <h2 data-he="שלוש סוויטות, שלושה סגנונות" data-en="Three suites, three styles">שלוש סוויטות, שלושה סגנונות</h2>
+      <p data-he="כל סוויטה מעוצבת באווירה משלה וכוללת ג'קוזי פנימי, מיזוג אוויר ופינת ישיבה. לחצו על תמונה לגלריה של הסוויטה." data-en="Each suite has its own atmosphere and includes an indoor jacuzzi, air conditioning and a seating area. Tap a photo to see the suite's gallery.">כל סוויטה מעוצבת באווירה משלה וכוללת ג'קוזי פנימי, מיזוג אוויר ופינת ישיבה. לחצו על תמונה לגלריה של הסוויטה.</p>
     </div>
     <div class="rooms-grid">
-      <!-- ROOM 1 -->
-      <div class="room-card reveal">
-        <div class="room-img r1"><span class="room-tag" data-he="הכי פופולרי" data-en="Most popular">הכי פופולרי</span></div>
+
+      <!-- SUITE 1: BLUE FLOWER -->
+      <article class="room-card reveal">
+        <button class="room-img" data-open="flower" data-index="0" data-label-he="גלריית סוויטת הפרח הכחול" data-label-en="Blue Flower Suite gallery" aria-label="גלריית סוויטת הפרח הכחול">
+          <img src="images/flower-suite-1-sm.jpg" alt="" loading="lazy">
+          <span class="room-tag" data-he="עם בריכה פרטית" data-en="Private pool">עם בריכה פרטית</span>
+          <span class="photo-count" aria-hidden="true">📷 3</span>
+        </button>
         <div class="room-body">
-          <h3 data-he="סוויטה זוגית" data-en="Couple's Suite">סוויטה זוגית</h3>
-          <p data-he="[ תיאור קצר של היחידה ]" data-en="[ Short description of the unit ]">[ תיאור קצר של היחידה ]</p>
+          <h3 data-he="סוויטת הפרח הכחול" data-en="Blue Flower Suite">סוויטת הפרח הכחול</h3>
+          <p data-he="חלל מואר ומרווח בגווני שמנת, עם תקרת תאורה צבעונית, ג'קוזי עגול וגדול על רקע קיר פסיפס, וחלונות גדולים אל הגינה הפרטית והבריכה." data-en="A bright, spacious suite in cream tones, with a colorful lit ceiling, a large round jacuzzi against a mosaic wall, and big windows onto the private garden and pool.">חלל מואר ומרווח בגווני שמנת, עם תקרת תאורה צבעונית, ג'קוזי עגול וגדול על רקע קיר פסיפס, וחלונות גדולים אל הגינה הפרטית והבריכה.</p>
           <div class="room-meta">
-            <span data-he="👥 2 אורחים" data-en="👥 2 guests">👥 2 אורחים</span>
+            <span data-he="♨️ ג'קוזי עגול" data-en="♨️ Round jacuzzi">♨️ ג'קוזי עגול</span>
+            <span data-he="🏊 בריכה פרטית" data-en="🏊 Private pool">🏊 בריכה פרטית</span>
             <span data-he="🛏️ מיטה זוגית" data-en="🛏️ Double bed">🛏️ מיטה זוגית</span>
+            <span data-he="🛋️ ספה ופינת אוכל" data-en="🛋️ Sofa & dining table">🛋️ ספה ופינת אוכל</span>
           </div>
           <div class="room-footer">
-            <div class="price"><strong>₪XXX</strong> <small data-he="/ לילה" data-en="/ night">/ לילה</small></div>
-            <a href="#contact" class="btn btn-gold btn-sm" data-he="הזמנה" data-en="Book">הזמנה</a>
+            <button class="link-btn" data-open="flower" data-index="0" data-he="לכל התמונות" data-en="See all photos">לכל התמונות</button>
+            <a href="#contact" class="btn btn-gold btn-sm" data-he="בדיקת זמינות" data-en="Check availability">בדיקת זמינות</a>
           </div>
         </div>
-      </div>
-      <!-- ROOM 2 -->
-      <div class="room-card reveal">
-        <div class="room-img r2"></div>
+      </article>
+
+      <!-- SUITE 2: LAKE -->
+      <article class="room-card reveal">
+        <button class="room-img" data-open="lake" data-index="0" data-label-he="גלריית סוויטת האגם" data-label-en="Lake Suite gallery" aria-label="גלריית סוויטת האגם">
+          <img src="images/lake-suite-1-sm.jpg" alt="" loading="lazy">
+          <span class="photo-count" aria-hidden="true">📷 2</span>
+        </button>
         <div class="room-body">
-          <h3 data-he="דירה משפחתית" data-en="Family Apartment">דירה משפחתית</h3>
-          <p data-he="[ תיאור קצר של היחידה ]" data-en="[ Short description of the unit ]">[ תיאור קצר של היחידה ]</p>
+          <h3 data-he="סוויטת האגם" data-en="Lake Suite">סוויטת האגם</h3>
+          <p data-he="סוויטה באווירה כחולה ומרגיעה: תאורת לד בתקרה, קירות נוף של אגם והרים מושלגים, ג'קוזי פינתי מחופה אריחים כחולים ומטבחון מאובזר." data-en="A calm, blue-toned suite: LED-lit ceiling, lake-and-snowy-mountain wall murals, a corner jacuzzi in blue tiles and an equipped kitchenette.">סוויטה באווירה כחולה ומרגיעה: תאורת לד בתקרה, קירות נוף של אגם והרים מושלגים, ג'קוזי פינתי מחופה אריחים כחולים ומטבחון מאובזר.</p>
           <div class="room-meta">
-            <span data-he="👥 עד 5 אורחים" data-en="👥 Up to 5 guests">👥 עד 5 אורחים</span>
-            <span data-he="🍳 מטבח מלא" data-en="🍳 Full kitchen">🍳 מטבח מלא</span>
+            <span data-he="♨️ ג'קוזי פינתי" data-en="♨️ Corner jacuzzi">♨️ ג'קוזי פינתי</span>
+            <span data-he="🍳 מטבחון" data-en="🍳 Kitchenette">🍳 מטבחון</span>
+            <span data-he="🛏️ מיטה זוגית" data-en="🛏️ Double bed">🛏️ מיטה זוגית</span>
+            <span data-he="📺 טלוויזיה" data-en="📺 TV">📺 טלוויזיה</span>
           </div>
           <div class="room-footer">
-            <div class="price"><strong>₪XXX</strong> <small data-he="/ לילה" data-en="/ night">/ לילה</small></div>
-            <a href="#contact" class="btn btn-gold btn-sm" data-he="הזמנה" data-en="Book">הזמנה</a>
+            <button class="link-btn" data-open="lake" data-index="0" data-he="לכל התמונות" data-en="See all photos">לכל התמונות</button>
+            <a href="#contact" class="btn btn-gold btn-sm" data-he="בדיקת זמינות" data-en="Check availability">בדיקת זמינות</a>
           </div>
         </div>
-      </div>
-      <!-- ROOM 3 -->
-      <div class="room-card reveal">
-        <div class="room-img r3"></div>
+      </article>
+
+      <!-- SUITE 3: CHOCOLATE -->
+      <article class="room-card reveal">
+        <button class="room-img" data-open="chocolate" data-index="0" data-label-he="גלריית סוויטת השוקולד" data-label-en="Chocolate Suite gallery" aria-label="גלריית סוויטת השוקולד">
+          <img src="images/chocolate-suite-1-sm.jpg" alt="" loading="lazy">
+          <span class="photo-count" aria-hidden="true">📷 3</span>
+        </button>
         <div class="room-body">
-          <h3 data-he="יחידת גן" data-en="Garden Unit">יחידת גן</h3>
-          <p data-he="[ תיאור קצר של היחידה ]" data-en="[ Short description of the unit ]">[ תיאור קצר של היחידה ]</p>
+          <h3 data-he="סוויטת השוקולד" data-en="Chocolate Suite">סוויטת השוקולד</h3>
+          <p data-he="גוונים חמים של שוקולד ושמנת, תקרה מעוצבת בתאורה עקיפה, ג'קוזי פינתי מול קיר נוף פיורד, ספה רכה ומטבחון מלא עם מקרר, מיקרוגל וקומקום." data-en="Warm chocolate-and-cream tones, a sculpted ceiling with soft indirect lighting, a corner jacuzzi facing a fjord mural, a plush sofa and a full kitchenette with fridge, microwave and kettle.">גוונים חמים של שוקולד ושמנת, תקרה מעוצבת בתאורה עקיפה, ג'קוזי פינתי מול קיר נוף פיורד, ספה רכה ומטבחון מלא עם מקרר, מיקרוגל וקומקום.</p>
           <div class="room-meta">
-            <span data-he="👥 עד 4 אורחים" data-en="👥 Up to 4 guests">👥 עד 4 אורחים</span>
-            <span data-he="🌿 חצר פרטית" data-en="🌿 Private yard">🌿 חצר פרטית</span>
+            <span data-he="♨️ ג'קוזי פינתי" data-en="♨️ Corner jacuzzi">♨️ ג'קוזי פינתי</span>
+            <span data-he="🍳 מטבחון" data-en="🍳 Kitchenette">🍳 מטבחון</span>
+            <span data-he="🛏️ מיטה זוגית" data-en="🛏️ Double bed">🛏️ מיטה זוגית</span>
+            <span data-he="📺 טלוויזיה" data-en="📺 TV">📺 טלוויזיה</span>
           </div>
           <div class="room-footer">
-            <div class="price"><strong>₪XXX</strong> <small data-he="/ לילה" data-en="/ night">/ לילה</small></div>
-            <a href="#contact" class="btn btn-gold btn-sm" data-he="הזמנה" data-en="Book">הזמנה</a>
+            <button class="link-btn" data-open="chocolate" data-index="0" data-he="לכל התמונות" data-en="See all photos">לכל התמונות</button>
+            <a href="#contact" class="btn btn-gold btn-sm" data-he="בדיקת זמינות" data-en="Check availability">בדיקת זמינות</a>
           </div>
         </div>
-      </div>
+      </article>
+
     </div>
   </div>
 </section>
@@ -506,17 +556,36 @@
 <section id="amenities">
   <div class="container">
     <div class="section-head reveal">
-      <span class="eyebrow" data-he="מה מחכה לכם" data-en="What's included">מה מחכה לכם</span>
-      <h2 data-he="כל מה שצריך לחופשה מושלמת" data-en="Everything for a perfect stay">כל מה שצריך לחופשה מושלמת</h2>
+      <span class="eyebrow" data-he="מה כלול באירוח" data-en="What's included">מה כלול באירוח</span>
+      <h2 data-he="כל מה שצריך לחופשה מפנקת" data-en="Everything for a pampering stay">כל מה שצריך לחופשה מפנקת</h2>
     </div>
     <div class="amen-grid">
-      <div class="amen reveal"><div class="icon">📶</div><h3 data-he="Wi-Fi מהיר" data-en="Fast Wi-Fi">Wi-Fi מהיר</h3><p data-he="בכל היחידות" data-en="In every unit">בכל היחידות</p></div>
-      <div class="amen reveal"><div class="icon">❄️</div><h3 data-he="מיזוג אוויר" data-en="Air Conditioning">מיזוג אוויר</h3><p data-he="קיץ וחורף" data-en="Summer & winter">קיץ וחורף</p></div>
-      <div class="amen reveal"><div class="icon">🍳</div><h3 data-he="מטבחון מאובזר" data-en="Equipped Kitchen">מטבחון מאובזר</h3><p data-he="כולל קפה ותה" data-en="Coffee & tea included">כולל קפה ותה</p></div>
-      <div class="amen reveal"><div class="icon">🚗</div><h3 data-he="חניה חינם" data-en="Free Parking">חניה חינם</h3><p data-he="צמוד ליחידה" data-en="Right by your door">צמוד ליחידה</p></div>
-      <div class="amen reveal"><div class="icon">📺</div><h3 data-he="טלוויזיה חכמה" data-en="Smart TV">טלוויזיה חכמה</h3><p data-he="נטפליקס ויוטיוב" data-en="Netflix & YouTube">נטפליקס ויוטיוב</p></div>
-      <div class="amen reveal"><div class="icon">🔥</div><h3 data-he="פינת על האש" data-en="BBQ Area">פינת על האש</h3><p data-he="[ ערכו לפי הקיים ]" data-en="[ edit to match ]">[ ערכו לפי הקיים ]</p></div>
+      <div class="amen reveal"><div class="icon" aria-hidden="true">♨️</div><h3 data-he="ג'קוזי פנימי" data-en="Indoor jacuzzi">ג'קוזי פנימי</h3><p data-he="בכל אחת מהסוויטות" data-en="In every suite">בכל אחת מהסוויטות</p></div>
+      <div class="amen reveal"><div class="icon" aria-hidden="true">🏊</div><h3 data-he="בריכה פרטית" data-en="Private pool">בריכה פרטית</h3><p data-he="בגינה של שתי סוויטות, פעילה מיוני" data-en="In the garden of two suites, open from June">בגינה של שתי סוויטות, פעילה מיוני</p></div>
+      <div class="amen reveal"><div class="icon" aria-hidden="true">🌿</div><h3 data-he="חצר פרטית" data-en="Private yard">חצר פרטית</h3><p data-he="דשא, פינת ישיבה וכיסא תלוי" data-en="Lawn, seating and a hanging egg chair">דשא, פינת ישיבה וכיסא תלוי</p></div>
+      <div class="amen reveal"><div class="icon" aria-hidden="true">🔥</div><h3 data-he="פינת מנגל" data-en="BBQ corner">פינת מנגל</h3><p data-he="גריל וכיור בחצר" data-en="Grill and sink in the yard">גריל וכיור בחצר</p></div>
+      <div class="amen reveal"><div class="icon" aria-hidden="true">🍳</div><h3 data-he="מטבחון" data-en="Kitchenette">מטבחון</h3><p data-he="מקרר, מיקרוגל וקומקום" data-en="Fridge, microwave and kettle">מקרר, מיקרוגל וקומקום</p></div>
+      <div class="amen reveal"><div class="icon" aria-hidden="true">❄️</div><h3 data-he="מיזוג וטלוויזיה" data-en="A/C & TV">מיזוג וטלוויזיה</h3><p data-he="לנוחות בכל עונה" data-en="Comfortable in every season">לנוחות בכל עונה</p></div>
+      <div class="amen reveal"><div class="icon" aria-hidden="true">☕</div><h3 data-he="פינת קפה ופירות" data-en="Coffee & fruit">פינת קפה ופירות</h3><p data-he="סט קפה ותה ופירות העונה" data-en="Coffee & tea set and seasonal fruit">סט קפה ותה ופירות העונה</p></div>
+      <div class="amen reveal"><div class="icon" aria-hidden="true">🧴</div><h3 data-he="חלוקים ומגבות" data-en="Robes & towels">חלוקים ומגבות</h3><p data-he="חלוקי רחצה, מגבות ומוצרי טיפוח" data-en="Bathrobes, towels and toiletries">חלוקי רחצה, מגבות ומוצרי טיפוח</p></div>
+      <div class="amen reveal"><div class="icon" aria-hidden="true">🥐</div><h3 data-he="ארוחת בוקר כפרית" data-en="Country breakfast">ארוחת בוקר כפרית</h3><p data-he="ארוחה עשירה – בהזמנה מראש" data-en="A generous meal – order in advance">ארוחה עשירה – בהזמנה מראש</p></div>
     </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow" data-he="גלריה" data-en="Gallery">גלריה</span>
+      <h2 data-he="הציצו פנימה" data-en="Take a look inside">הציצו פנימה</h2>
+    </div>
+    <div class="filters" role="group" data-label-he="סינון תמונות" data-label-en="Filter photos" aria-label="סינון תמונות">
+      <button class="filter-btn" data-filter="all" aria-pressed="true" data-he="הכל" data-en="All">הכל</button>
+      <button class="filter-btn" data-filter="suites" aria-pressed="false" data-he="הסוויטות" data-en="Suites">הסוויטות</button>
+      <button class="filter-btn" data-filter="outdoor" aria-pressed="false" data-he="חצר ובריכה" data-en="Garden & pool">חצר ובריכה</button>
+    </div>
+    <div class="gallery-grid" id="galleryGrid"></div>
   </div>
 </section>
 
@@ -526,72 +595,69 @@
     <div class="section-head reveal">
       <span class="eyebrow" data-he="מה עושים באזור" data-en="Explore nearby">מה עושים באזור</span>
       <h2 data-he="הגליל המערבי בהישג יד" data-en="The Western Galilee at your doorstep">הגליל המערבי בהישג יד</h2>
-      <p data-he="ים, הרים, מערות ומסעדות – הכל במרחק נסיעה קצרה." data-en="Sea, mountains, grottoes and great food – all a short drive away.">ים, הרים, מערות ומסעדות – הכל במרחק נסיעה קצרה.</p>
+      <p data-he="ים, הרים, מבצרים ומסעדות – הכל במרחק נסיעה קצרה. זמני הנסיעה משוערים." data-en="Sea, mountains, fortresses and great food – all a short drive away. Drive times are approximate.">ים, הרים, מבצרים ומסעדות – הכל במרחק נסיעה קצרה. זמני הנסיעה משוערים.</p>
     </div>
     <div class="area-grid">
-      <!-- TODO: check the drive times -->
-      <div class="spot reveal"><span class="dist" data-he="~10 דק' נסיעה" data-en="~10 min drive">~10 דק' נסיעה</span><h3 data-he="ראש הנקרה" data-en="Rosh HaNikra">ראש הנקרה</h3><p data-he="נקרות הגיר הלבנות והרכבל אל הים." data-en="White chalk grottoes and the cable car down to the sea.">נקרות הגיר הלבנות והרכבל אל הים.</p></div>
-      <div class="spot reveal"><span class="dist" data-he="~15 דק' נסיעה" data-en="~15 min drive">~15 דק' נסיעה</span><h3 data-he="חוף אכזיב" data-en="Achziv Beach">חוף אכזיב</h3><p data-he="בריכות טבעיות ושמורת טבע על קו המים." data-en="Natural tide pools and a seaside nature reserve.">בריכות טבעיות ושמורת טבע על קו המים.</p></div>
-      <div class="spot reveal"><span class="dist" data-he="~5 דק' נסיעה" data-en="~5 min drive">~5 דק' נסיעה</span><h3 data-he="נחל בצת" data-en="Betzet Stream">נחל בצת</h3><p data-he="מסלולי הליכה מוצלים ונופי גליל ירוקים." data-en="Shaded hiking trails and green Galilee views.">מסלולי הליכה מוצלים ונופי גליל ירוקים.</p></div>
-      <div class="spot reveal"><span class="dist" data-he="~25 דק' נסיעה" data-en="~25 min drive">~25 דק' נסיעה</span><h3 data-he="עכו העתיקה" data-en="Old Acre">עכו העתיקה</h3><p data-he="עיר צלבנית, שווקים ומסעדות דגים." data-en="Crusader city, markets and fish restaurants.">עיר צלבנית, שווקים ומסעדות דגים.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ REVIEWS ============ -->
-<section id="reviews">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow" data-he="אורחים מספרים" data-en="Guest reviews">אורחים מספרים</span>
-      <h2 data-he="מה אומרים עלינו" data-en="What guests say">מה אומרים עלינו</h2>
-    </div>
-    <div class="reviews-grid">
-      <!-- TODO: paste real reviews from Booking / Airbnb -->
-      <div class="review reveal"><div class="stars">★★★★★</div><p data-he="[ ביקורת אמיתית מ-Booking ]" data-en="[ Real review from Booking.com ]">[ ביקורת אמיתית מ-Booking ]</p><div class="who">[ Name ]</div><div class="src">Booking.com</div></div>
-      <div class="review reveal"><div class="stars">★★★★★</div><p data-he="[ ביקורת אמיתית מ-Airbnb ]" data-en="[ Real review from Airbnb ]">[ ביקורת אמיתית מ-Airbnb ]</p><div class="who">[ Name ]</div><div class="src">Airbnb</div></div>
-      <div class="review reveal"><div class="stars">★★★★★</div><p data-he="[ ביקורת אמיתית ]" data-en="[ Real review ]">[ ביקורת אמיתית ]</p><div class="who">[ Name ]</div><div class="src">Google</div></div>
+      <div class="spot reveal"><span class="dist" data-he="בשלומי" data-en="In Shlomi">בשלומי</span><h3 data-he="יער שלומי" data-en="Shlomi Forest">יער שלומי</h3><p data-he="חורשה עם חניוני פיקניק ומסלולי הליכה, לצד אתר ארכיאולוגי ומרכז מסחרי גדול ביישוב." data-en="A forest with picnic areas and hiking trails, plus an archaeological site and a large shopping center in town.">חורשה עם חניוני פיקניק ומסלולי הליכה, לצד אתר ארכיאולוגי ומרכז מסחרי גדול ביישוב.</p></div>
+      <div class="spot reveal"><span class="dist" data-he="כ-10 דק' נסיעה" data-en="~10 min drive">כ-10 דק' נסיעה</span><h3 data-he="ראש הנקרה" data-en="Rosh HaNikra">ראש הנקרה</h3><p data-he="נקרות הגיר הלבנות והרכבל היורד אל הים." data-en="The white chalk grottoes and the cable car down to the sea.">נקרות הגיר הלבנות והרכבל היורד אל הים.</p></div>
+      <div class="spot reveal"><span class="dist" data-he="כ-15 דק' נסיעה" data-en="~15 min drive">כ-15 דק' נסיעה</span><h3 data-he="חופי אכזיב" data-en="Achziv beaches">חופי אכזיב</h3><p data-he="בריכות טבעיות, שמורת טבע וספורט ימי בעונה." data-en="Natural tide pools, a nature reserve and water sports in season.">בריכות טבעיות, שמורת טבע וספורט ימי בעונה.</p></div>
+      <div class="spot reveal"><span class="dist" data-he="כ-25 דק' נסיעה" data-en="~25 min drive">כ-25 דק' נסיעה</span><h3 data-he="מבצר יחיעם ומונפור" data-en="Yehiam & Montfort">מבצר יחיעם ומונפור</h3><p data-he="מבצרים צלבניים, תצפיות ומסלולים בנחל כזיב." data-en="Crusader fortresses, viewpoints and trails along Nahal Kziv.">מבצרים צלבניים, תצפיות ומסלולים בנחל כזיב.</p></div>
+      <div class="spot reveal"><span class="dist" data-he="כ-30 דק' נסיעה" data-en="~30 min drive">כ-30 דק' נסיעה</span><h3 data-he="הגנים הבהאיים בעכו" data-en="Bahá'í Gardens, Akko">הגנים הבהאיים בעכו</h3><p data-he="גנים מטופחים, ובהמשך העיר העתיקה של עכו." data-en="Beautifully kept gardens, with Akko's old city nearby.">גנים מטופחים, ובהמשך העיר העתיקה של עכו.</p></div>
+      <div class="spot reveal"><span class="dist" data-he="באזור" data-en="Around the area">באזור</span><h3 data-he="פעילויות ומסעדות" data-en="Activities & dining">פעילויות ומסעדות</h3><p data-he="רכיבה על סוסים, טרקטורונים וג'יפים, ומסעדות ופאבים ברחבי הגליל." data-en="Horseback riding, ATVs and jeep tours, plus restaurants and pubs across the Galilee.">רכיבה על סוסים, טרקטורונים וג'יפים, ומסעדות ופאבים ברחבי הגליל.</p></div>
     </div>
   </div>
 </section>
 
 <!-- ============ CONTACT ============ -->
-<section class="contact" id="contact">
+<section id="contact">
   <div class="container contact-grid">
     <div class="contact-card reveal">
       <h2 data-he="מוכנים לחופשה?" data-en="Ready for a getaway?">מוכנים לחופשה?</h2>
-      <p data-he="שלחו לנו הודעה לבדיקת זמינות, או הזמינו דרך הפלטפורמה המועדפת עליכם." data-en="Message us to check availability, or book through your favorite platform.">שלחו לנו הודעה לבדיקת זמינות, או הזמינו דרך הפלטפורמה המועדפת עליכם.</p>
+      <p data-he="שלחו לנו הודעה לבדיקת זמינות ומחירים, או הזמינו דרך הפלטפורמה המועדפת עליכם." data-en="Message us to check availability and prices, or book through your favorite platform.">שלחו לנו הודעה לבדיקת זמינות ומחירים, או הזמינו דרך הפלטפורמה המועדפת עליכם.</p>
       <div class="book-links">
-        <!-- TODO: put your real links / phone number here -->
-        <a class="book-link wa" id="waLink" href="https://wa.me/9725XXXXXXXX" target="_blank" rel="noopener"><span>WhatsApp</span><span>→</span></a>
-        <a class="book-link bk" href="https://www.booking.com/" target="_blank" rel="noopener"><span>Booking.com</span><span>→</span></a>
-        <a class="book-link ab" href="https://www.airbnb.com/" target="_blank" rel="noopener"><span>Airbnb</span><span>→</span></a>
+        <a class="book-link wa" data-cfg="whatsapp" target="_blank" rel="noopener"><span data-he="וואטסאפ – מענה מהיר" data-en="WhatsApp – quick reply">וואטסאפ – מענה מהיר</span><span aria-hidden="true">←</span></a>
+        <a class="book-link bk" data-cfg="bookingUrl" target="_blank" rel="noopener"><span>Booking.com</span><span aria-hidden="true">←</span></a>
+        <a class="book-link ab" data-cfg="airbnbUrl" target="_blank" rel="noopener"><span>Airbnb</span><span aria-hidden="true">←</span></a>
+        <a class="book-link zt" data-cfg="zimmertopUrl" target="_blank" rel="noopener"><span data-he="צימרטופ – דף המתחם וחוות דעת" data-en="Zimmertop – listing & reviews">צימרטופ – דף המתחם וחוות דעת</span><span aria-hidden="true">←</span></a>
       </div>
       <div class="contact-info">
         <div data-he="📍 שלומי, גליל מערבי" data-en="📍 Shlomi, Western Galilee, Israel">📍 שלומי, גליל מערבי</div>
-        <div>📞 05X-XXX-XXXX</div>
-        <div>✉️ info@goldenplace.co.il</div>
+        <div data-cfg-wrap>📞 <a data-cfg="phone" data-cfg-text dir="ltr"></a></div>
+        <div data-cfg-wrap>✉️ <a data-cfg="email" data-cfg-text dir="ltr"></a></div>
       </div>
     </div>
     <div class="map reveal">
-      <iframe src="https://maps.google.com/maps?q=Shlomi,Israel&z=14&output=embed" loading="lazy" title="Map of Golden Place location in Shlomi / מפת מיקום גולדן פלייס בשלומי"></iframe>
+      <iframe src="https://maps.google.com/maps?q=Shlomi,Israel&z=14&output=embed" loading="lazy" title="מפת שלומי, גליל מערבי / Map of Shlomi, Western Galilee"></iframe>
     </div>
   </div>
 </section>
+
 </main>
 
 <!-- ============ FOOTER ============ -->
 <footer>
   <div class="container">
-    <div>© <span id="year"></span> Golden Place · <span data-he="שלומי" data-en="Shlomi">שלומי</span></div>
-    <a href="accessibility.html" style="text-decoration:underline" data-he="הצהרת נגישות" data-en="Accessibility Statement">הצהרת נגישות</a>
-    <div data-he="נבנה באהבה בגליל המערבי" data-en="Made with love in the Western Galilee">נבנה באהבה בגליל המערבי</div>
+    <div>© <span id="year"></span> Golden Place · <span data-he="גולדן פלייס, שלומי" data-en="Shlomi, Israel">גולדן פלייס, שלומי</span></div>
+    <a href="accessibility.html" data-he="הצהרת נגישות" data-en="Accessibility Statement">הצהרת נגישות</a>
   </div>
 </footer>
 
 <!-- Floating WhatsApp -->
-<a class="wa-float" id="waFloat" href="https://wa.me/9725XXXXXXXX" target="_blank" rel="noopener" aria-label="WhatsApp">
-  <svg viewBox="0 0 32 32"><path d="M16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.5 1.7 6.5L3 29l6.7-1.7c1.9 1 4.1 1.6 6.3 1.6 7.2 0 13-5.8 13-13S23.2 3 16 3zm0 23.7c-2 0-3.9-.5-5.6-1.5l-.4-.2-4 1 1.1-3.9-.3-.4C5.8 20 5.3 18 5.3 16 5.3 10.1 10.1 5.3 16 5.3S26.7 10.1 26.7 16 21.9 26.7 16 26.7zm5.9-8c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.2 1.4 3.4c.2.2 2.4 3.6 5.7 5 .8.3 1.4.5 1.9.7.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
+<a class="wa-float" data-cfg="whatsapp" target="_blank" rel="noopener" data-label-he="שליחת הודעת וואטסאפ" data-label-en="Send a WhatsApp message" aria-label="שליחת הודעת וואטסאפ">
+  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C8.8 3 3 8.8 3 16c0 2.3.6 4.5 1.7 6.5L3 29l6.7-1.7c1.9 1 4.1 1.6 6.3 1.6 7.2 0 13-5.8 13-13S23.2 3 16 3zm0 23.7c-2 0-3.9-.5-5.6-1.5l-.4-.2-4 1 1.1-3.9-.3-.4C5.8 20 5.3 18 5.3 16 5.3 10.1 10.1 5.3 16 5.3S26.7 10.1 26.7 16 21.9 26.7 16 26.7zm5.9-8c-.3-.2-1.9-.9-2.2-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.6.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.2 1.4 3.4c.2.2 2.4 3.6 5.7 5 .8.3 1.4.5 1.9.7.8.3 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg>
 </a>
+
+<!-- ============ LIGHTBOX ============ -->
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-labelledby="lbCap" hidden>
+  <span class="lb-count" id="lbCount" dir="ltr" aria-live="polite"></span>
+  <button class="lb-close" id="lbClose" data-label-he="סגירה" data-label-en="Close" aria-label="סגירה">✕</button>
+  <button class="lb-prev" id="lbPrev" data-label-he="התמונה הקודמת" data-label-en="Previous photo" aria-label="התמונה הקודמת">‹</button>
+  <figure>
+    <img id="lbImg" src="" alt="">
+    <figcaption id="lbCap"></figcaption>
+  </figure>
+  <button class="lb-next" id="lbNext" data-label-he="התמונה הבאה" data-label-en="Next photo" aria-label="התמונה הבאה">›</button>
+</div>
 
 <!-- ============ ACCESSIBILITY WIDGET ============ -->
 <button class="a11y-toggle" id="a11yToggle" aria-expanded="false" aria-controls="a11yPanel"
@@ -624,48 +690,143 @@
   </div>
 </div>
 
+<script src="config.js"></script>
 <script>
-  // ---------- CONFIG: edit these ----------
-  const WHATSAPP_NUMBER = "9725XXXXXXXX"; // international format, no + or dashes
+  // ---------- PHOTOS ----------
+  // g = which suite gallery the photo belongs to, cat = gallery filter
+  const PHOTOS = [
+    { f: "flower-suite-1",   g: "flower",    cat: "suites",  he: "סוויטת הפרח הכחול – מיטה זוגית, פינת אוכל וספה", en: "Blue Flower Suite – double bed, dining table and sofa" },
+    { f: "flower-suite-3",   g: "flower",    cat: "suites",  he: "סוויטת הפרח הכחול – ג'קוזי עגול על רקע קיר פסיפס", en: "Blue Flower Suite – round jacuzzi by the mosaic wall" },
+    { f: "flower-suite-2",   g: "flower",    cat: "suites",  he: "סוויטת הפרח הכחול – ג'קוזי עם נוף לגינה", en: "Blue Flower Suite – jacuzzi with a garden view" },
+    { f: "lake-suite-1",     g: "lake",      cat: "suites",  he: "סוויטת האגם – מיטה זוגית, ספה וג'קוזי פינתי", en: "Lake Suite – double bed, sofa and corner jacuzzi" },
+    { f: "lake-suite-2",     g: "lake",      cat: "suites",  he: "סוויטת האגם – ג'קוזי פינתי ומטבחון", en: "Lake Suite – corner jacuzzi and kitchenette" },
+    { f: "chocolate-suite-1",g: "chocolate", cat: "suites",  he: "סוויטת השוקולד – פינת ישיבה וג'קוזי פינתי", en: "Chocolate Suite – seating area and corner jacuzzi" },
+    { f: "chocolate-suite-2",g: "chocolate", cat: "suites",  he: "סוויטת השוקולד – מיטה זוגית ומנורות לילה", en: "Chocolate Suite – double bed with bedside lamps" },
+    { f: "chocolate-suite-3",g: "chocolate", cat: "suites",  he: "סוויטת השוקולד – מטבחון עם מקרר, מיקרוגל וקומקום", en: "Chocolate Suite – kitchenette with fridge, microwave and kettle" },
+    { f: "bathroom",         g: "",          cat: "suites",  he: "חדר רחצה עם מקלחון", en: "Bathroom with shower" },
+    { f: "garden-pool-1",    g: "outdoor",   cat: "outdoor", he: "פינת ישיבה מוצלת ליד הבריכה הפרטית", en: "Shaded seating by the private pool" },
+    { f: "garden-pool-2",    g: "outdoor",   cat: "outdoor", he: "הגינה הפרטית – בריכה, כיסא תלוי ופינת מנגל", en: "The private garden – pool, hanging chair and BBQ corner" },
+    { f: "garden-bbq",       g: "outdoor",   cat: "outdoor", he: "פינת המנגל והכיסא התלוי בשעת ערב", en: "BBQ corner and hanging chair in the evening" },
+    { f: "patio-evening",    g: "outdoor",   cat: "outdoor", he: "מרפסת מקורה עם פינת אוכל ונוף להרי הגליל", en: "Covered patio with a dining table and Galilee hill views" },
+    { f: "garden-lawn",      g: "outdoor",   cat: "outdoor", he: "דשא ופינת ישיבה מתחת לשמשייה", en: "Lawn and seating under the parasol" },
+    { f: "patio-bbq",        g: "outdoor",   cat: "outdoor", he: "חצר פרטית עם מנגל, כיור ופינת אוכל", en: "Private yard with a grill, sink and dining table" }
+  ];
 
-  // WhatsApp links with a prefilled message
-  const waMsg = {
-    he: "היי! אשמח לבדוק זמינות בגולדן פלייס 🙂",
-    en: "Hi! I'd like to check availability at Golden Place 🙂"
-  };
-  function updateWaLinks(lang) {
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(waMsg[lang])}`;
-    document.getElementById("waLink").href = url;
-    document.getElementById("waFloat").href = url;
-  }
+  let lang = "he";
 
   // ---------- Language toggle (HE / EN) ----------
   const langBtn = document.getElementById("langBtn");
-  function setLang(lang) {
-    document.documentElement.lang = lang;
-    document.documentElement.dir = lang === "he" ? "rtl" : "ltr";
-    document.querySelectorAll("[data-he]").forEach(el => {
-      el.innerHTML = el.dataset[lang];
-    });
+  function setLang(l) {
+    lang = l;
+    document.documentElement.lang = l;
+    document.documentElement.dir = l === "he" ? "rtl" : "ltr";
+    document.querySelectorAll("[data-he]").forEach(el => { el.innerHTML = el.dataset[l]; });
     document.querySelectorAll("[data-label-he]").forEach(el => {
-      el.setAttribute("aria-label", lang === "he" ? el.dataset.labelHe : el.dataset.labelEn);
+      el.setAttribute("aria-label", l === "he" ? el.dataset.labelHe : el.dataset.labelEn);
     });
-    langBtn.textContent = lang === "he" ? "English" : "עברית";
-    updateWaLinks(lang);
-    try { localStorage.setItem("gp-lang", lang); } catch (e) {}
+    document.querySelectorAll(".book-link span[aria-hidden]").forEach(s => s.textContent = l === "he" ? "←" : "→");
+    langBtn.textContent = l === "he" ? "English" : "עברית";
+    langBtn.lang = l === "he" ? "en" : "he";
+    document.title = l === "he"
+      ? "Golden Place | גולדן פלייס – סוויטות עם ג'קוזי בשלומי, גליל מערבי"
+      : "Golden Place | Private Jacuzzi Suites in Shlomi, Western Galilee";
+    updateWaLinks();
+    renderGallery(currentFilter);
+    if (!lb.hidden) showLb();
+    try { localStorage.setItem("gp-lang", l); } catch (e) {}
   }
-  langBtn.addEventListener("click", () => {
-    setLang(document.documentElement.lang === "he" ? "en" : "he");
+
+  // WhatsApp links with a prefilled message in the visitor's language
+  function updateWaLinks() {
+    const num = (window.GP_CONFIG && GP_CONFIG.whatsapp) || "";
+    if (!num) return;
+    const msg = lang === "he" ? "היי! אשמח לבדוק זמינות בגולדן פלייס 🙂" : "Hi! I'd like to check availability at Golden Place 🙂";
+    document.querySelectorAll('[data-cfg="whatsapp"]').forEach(a => {
+      a.href = `https://wa.me/${num}?text=${encodeURIComponent(msg)}`;
+    });
+  }
+
+  // ---------- Gallery ----------
+  const grid = document.getElementById("galleryGrid");
+  let currentFilter = "all";
+  function renderGallery(filter) {
+    currentFilter = filter;
+    const items = PHOTOS.filter(p => filter === "all" || p.cat === filter);
+    grid.innerHTML = "";
+    items.forEach((p, i) => {
+      const b = document.createElement("button");
+      b.className = "g-item";
+      b.setAttribute("aria-label", (lang === "he" ? "הגדלת תמונה: " : "Enlarge photo: ") + p[lang]);
+      b.innerHTML = `<img src="images/${p.f}-sm.jpg" alt="" loading="lazy">`;
+      b.addEventListener("click", () => openLb(items, i, b));
+      grid.appendChild(b);
+    });
+    document.querySelectorAll(".filter-btn").forEach(btn => btn.setAttribute("aria-pressed", btn.dataset.filter === filter));
+  }
+  document.querySelectorAll(".filter-btn").forEach(btn => btn.addEventListener("click", () => renderGallery(btn.dataset.filter)));
+
+  // ---------- Lightbox ----------
+  const lb = document.getElementById("lb");
+  const lbImg = document.getElementById("lbImg");
+  const lbCap = document.getElementById("lbCap");
+  const lbCount = document.getElementById("lbCount");
+  let lbItems = [], lbIndex = 0, lbReturn = null;
+
+  function openLb(items, index, returnEl) {
+    lbItems = items; lbIndex = index; lbReturn = returnEl;
+    lb.hidden = false;
+    document.body.style.overflow = "hidden";
+    showLb();
+    document.getElementById("lbClose").focus();
+  }
+  function showLb() {
+    const p = lbItems[lbIndex];
+    lbImg.src = `images/${p.f}.jpg`;
+    lbImg.alt = p[lang];
+    lbCap.textContent = p[lang];
+    lbCount.textContent = `${lbIndex + 1} / ${lbItems.length}`;
+    const multi = lbItems.length > 1;
+    document.getElementById("lbPrev").hidden = !multi;
+    document.getElementById("lbNext").hidden = !multi;
+  }
+  function closeLb() {
+    lb.hidden = true;
+    document.body.style.overflow = "";
+    if (lbReturn) lbReturn.focus();
+  }
+  function step(d) { lbIndex = (lbIndex + d + lbItems.length) % lbItems.length; showLb(); }
+  document.getElementById("lbClose").addEventListener("click", closeLb);
+  document.getElementById("lbPrev").addEventListener("click", () => step(-1));
+  document.getElementById("lbNext").addEventListener("click", () => step(1));
+  lb.addEventListener("click", e => { if (e.target === lb) closeLb(); });
+  document.addEventListener("keydown", e => {
+    if (lb.hidden) return;
+    const rtl = document.documentElement.dir === "rtl";
+    if (e.key === "Escape") closeLb();
+    if (e.key === "ArrowRight") step(rtl ? -1 : 1);
+    if (e.key === "ArrowLeft") step(rtl ? 1 : -1);
+    if (e.key === "Tab") { // keep focus inside the lightbox
+      const f = [...lb.querySelectorAll("button:not([hidden])")];
+      const i = f.indexOf(document.activeElement);
+      e.preventDefault();
+      f[(i + (e.shiftKey ? -1 : 1) + f.length) % f.length].focus();
+    }
   });
+  // suite cards / about photo open their own group
+  document.querySelectorAll("[data-open]").forEach(el => el.addEventListener("click", () => {
+    const g = el.dataset.open;
+    openLb(PHOTOS.filter(p => p.g === g), +el.dataset.index || 0, el);
+  }));
+
+  // init language
   let saved = "he";
   try { saved = localStorage.getItem("gp-lang") || "he"; } catch (e) {}
+  langBtn.addEventListener("click", () => setLang(lang === "he" ? "en" : "he"));
   setLang(saved);
 
   // ---------- Nav background on scroll ----------
   const nav = document.getElementById("nav");
-  window.addEventListener("scroll", () => {
-    nav.classList.toggle("scrolled", window.scrollY > 40);
-  });
+  window.addEventListener("scroll", () => nav.classList.toggle("scrolled", window.scrollY > 40));
 
   // ---------- Mobile menu ----------
   const navLinks = document.getElementById("navLinks");
@@ -680,56 +841,41 @@
   }));
 
   // ---------- Accessibility widget ----------
-  const a11y = (() => {
+  (() => {
     const toggle = document.getElementById("a11yToggle");
     const panel = document.getElementById("a11yPanel");
     const sizeVal = document.getElementById("a11ySizeVal");
     const modeBtns = panel.querySelectorAll("[data-mode]");
     const SIZES = [100, 112.5, 125, 137.5, 150];
     let state = { size: 0, modes: [] };
-
     try { state = JSON.parse(localStorage.getItem("gp-a11y")) || state; } catch (e) {}
-
     function save() { try { localStorage.setItem("gp-a11y", JSON.stringify(state)); } catch (e) {} }
-
     function apply() {
       document.documentElement.style.fontSize = SIZES[state.size] + "%";
       sizeVal.textContent = Math.round(SIZES[state.size]) + "%";
       modeBtns.forEach(btn => {
-        const m = btn.dataset.mode;
-        const on = state.modes.includes(m);
-        document.body.classList.toggle("a11y-" + m, on);
+        const on = state.modes.includes(btn.dataset.mode);
+        document.body.classList.toggle("a11y-" + btn.dataset.mode, on);
         btn.setAttribute("aria-pressed", on);
       });
       if (state.modes.includes("still")) document.querySelectorAll(".reveal").forEach(el => el.classList.add("visible"));
     }
-
     function openPanel(open) {
       panel.hidden = !open;
       toggle.setAttribute("aria-expanded", open);
-      if (open) panel.querySelector("button").focus();
-      else toggle.focus();
+      (open ? panel.querySelector("button") : toggle).focus();
     }
-
     toggle.addEventListener("click", () => openPanel(panel.hidden));
     document.getElementById("a11yClose").addEventListener("click", () => openPanel(false));
     document.addEventListener("keydown", e => { if (e.key === "Escape" && !panel.hidden) openPanel(false); });
-
-    document.getElementById("a11yPlus").addEventListener("click", () => {
-      state.size = Math.min(state.size + 1, SIZES.length - 1); apply(); save();
-    });
-    document.getElementById("a11yMinus").addEventListener("click", () => {
-      state.size = Math.max(state.size - 1, 0); apply(); save();
-    });
+    document.getElementById("a11yPlus").addEventListener("click", () => { state.size = Math.min(state.size + 1, SIZES.length - 1); apply(); save(); });
+    document.getElementById("a11yMinus").addEventListener("click", () => { state.size = Math.max(state.size - 1, 0); apply(); save(); });
     modeBtns.forEach(btn => btn.addEventListener("click", () => {
       const m = btn.dataset.mode;
       state.modes = state.modes.includes(m) ? state.modes.filter(x => x !== m) : [...state.modes, m];
       apply(); save();
     }));
-    document.getElementById("a11yReset").addEventListener("click", () => {
-      state = { size: 0, modes: [] }; apply(); save();
-    });
-
+    document.getElementById("a11yReset").addEventListener("click", () => { state = { size: 0, modes: [] }; apply(); save(); });
     apply();
   })();
 
@@ -739,7 +885,6 @@
   }, { threshold: 0.12 });
   document.querySelectorAll(".reveal").forEach(el => io.observe(el));
 
-  // ---------- Year ----------
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
 </body>
